@@ -11,7 +11,7 @@ const tableTools = [
   {
     name: 'HighLevel',
     bestFor: 'Automation-first roofers & agencies',
-    pricing: 'From ~$97/mo — verify with vendor',
+    pricing: 'Verify current pricing with vendor',
     roofingFit: 'Excellent' as const,
     standout: 'SMS, missed-call text-back, full automation stack',
     affiliateHref: '#',
@@ -19,7 +19,7 @@ const tableTools = [
   {
     name: 'JobNimbus',
     bestFor: 'Residential & storm restoration roofers',
-    pricing: 'From ~$25/user/mo — verify with vendor',
+    pricing: 'Verify current pricing with vendor',
     roofingFit: 'Excellent' as const,
     standout: 'Roofing-native workflows, photo docs, field app',
     affiliateHref: '#',
@@ -35,7 +35,7 @@ const tableTools = [
   {
     name: 'HubSpot CRM',
     bestFor: 'Early-stage or HubSpot ecosystem teams',
-    pricing: 'Free tier available; paid plans vary — verify with vendor',
+    pricing: 'Verify current pricing with vendor',
     roofingFit: 'Moderate' as const,
     standout: 'Free CRM tier, broad integrations',
     affiliateHref: '#',
@@ -43,7 +43,7 @@ const tableTools = [
   {
     name: 'Pipedrive',
     bestFor: 'Sales-focused roofing teams',
-    pricing: 'From ~$14/user/mo — verify with vendor',
+    pricing: 'Verify current pricing with vendor',
     roofingFit: 'Moderate' as const,
     standout: 'Visual deal pipeline, clean sales UX',
     affiliateHref: '#',
@@ -94,9 +94,9 @@ const relatedGuides = [
     description: 'Automate your follow-up sequences so no roofing lead goes cold.',
   },
   {
-    title: 'Missed Call Automation',
-    href: `${base}/missed-calls/`,
-    description: 'Instantly text back every missed inbound call from a roofing prospect.',
+    title: 'Missed-Call Text-Back Automation',
+    href: `${base}/roofing-missed-call-text-back-automation/`,
+    description: 'How to configure text-back automation with example SMS templates and a full workflow guide.',
   },
   {
     title: 'Free Lead Follow-Up Checklist',
@@ -120,15 +120,13 @@ const relatedGuides = [
 >
 
   <h2>Quick Answer</h2>
-  <p>
-    For roofing companies that need the fastest speed-to-lead and the deepest built-in automation,
-    <strong>HighLevel (GoHighLevel)</strong> is the strongest option — particularly for missed-call
-    text-back, SMS follow-up sequences, and pipeline automation. For roofing-specific operations
-    management — storm restoration, residential reroof, production scheduling — <strong>JobNimbus</strong>
-    and <strong>AccuLynx</strong> are purpose-built. <strong>HubSpot</strong> and
-    <strong>Pipedrive</strong> work for general sales pipeline management but require more
-    customization to match roofing workflows.
-  </p>
+  <p>The right CRM depends on where your biggest operational gap is:</p>
+  <ul>
+    <li><strong>If your gap is lead response and follow-up</strong> — missed calls unrecovered, slow SMS follow-up, low estimate acceptance — <strong><a href={`${base}/gohighlevel-for-roofers/`}>GoHighLevel</a></strong> can be a strong fit. It offers a capable automation stack for SMS sequences, missed-call text-back, and pipeline triggers, though it requires meaningful setup investment.</li>
+    <li><strong>If your gap is operations management</strong> — production scheduling, crew coordination, material tracking, insurance claim workflows, photo documentation — <strong>JobNimbus</strong> and <strong>AccuLynx</strong> are purpose-built for roofing with most of those workflows pre-configured.</li>
+    <li><strong>If you are early-stage with a tight budget</strong>, <strong>HubSpot's free CRM</strong> is a reasonable starting point before migrating to a more specialized tool as volume grows.</li>
+    <li><strong>If you want a clean sales pipeline without marketing automation overhead</strong>, <strong>Pipedrive</strong> is a focused option for teams that primarily need deal tracking.</li>
+  </ul>
 
   <h2>Best CRM Options for Roofing Companies by Use Case</h2>
 
@@ -233,9 +231,9 @@ const relatedGuides = [
   <ul>
     <li>
       <strong>Speed-to-lead.</strong> The roofing market — especially storm restoration — is
-      highly competitive on response time. Research consistently shows the first company to make
-      contact wins a disproportionate share of jobs. A CRM that cannot trigger an automated
-      response within minutes of a new lead is costing you closeable jobs.
+      highly competitive on response time. Response time is widely cited as a key factor in
+      winning roofing estimates. A CRM that cannot trigger an automated response within minutes
+      of a new lead may cost you otherwise closeable jobs.
     </li>
     <li>
       <strong>Missed-call recovery.</strong> A large share of inbound roofing leads call once and
@@ -243,9 +241,9 @@ const relatedGuides = [
       meaningful percentage of those leads before they call the next roofer on their list.
     </li>
     <li>
-      <strong>SMS-first follow-up.</strong> Homeowners respond to texts at far higher rates than
-      email. Your CRM's follow-up automation should default to SMS, not email — especially for
-      initial contact and estimate follow-up.
+      <strong>SMS-first follow-up.</strong> In many markets, homeowners respond to texts at
+      higher rates than email. A CRM with SMS automation built in makes it easier to default
+      to text for initial contact and estimate follow-up.
     </li>
     <li>
       <strong>Mobile access for field reps.</strong> Your sales reps are in driveways and on
@@ -323,7 +321,7 @@ const relatedGuides = [
     This single automation can recover a meaningful share of missed inbound calls without any
     manual effort from your team.
   </p>
-  <p>More on this: <a href={`${base}/missed-calls/`}>Missed Call Automation for Roofing Companies</a></p>
+  <p>More on this: <a href={`${base}/roofing-missed-call-text-back-automation/`}>Missed-Call Text-Back Automation for Roofers</a></p>
 
   <h3>2. New Lead SMS Follow-Up Sequence</h3>
   <p>
@@ -339,8 +337,8 @@ const relatedGuides = [
     After sending a proposal, the default in most roofing companies is silence. A better approach:
     trigger an automatic follow-up SMS 24 hours after sending — <em>"Just checking if you had a
     chance to review the estimate — happy to answer any questions"</em> — and a second follow-up at
-    72 hours if there is still no response. Estimate reminders cost nothing and consistently
-    improve acceptance rates.
+    72 hours if there is still no response. Estimate reminders are low-cost to configure and
+    can help improve acceptance rates.
   </p>
 
   <h3>4. No-Show Follow-Up</h3>
@@ -410,14 +408,14 @@ const relatedGuides = [
   <p>
     If your gap is production — coordinating crews, tracking materials, managing subcontractors —
     <strong>AccuLynx</strong> or <strong>JobNimbus</strong> are purpose-built for roofing operations
-    and will reduce friction from day one.
+    and are designed to reduce friction from day one.
   </p>
   <p>
     If your gap is lead response — missed calls going unrecovered, slow follow-up, cold leads,
     and low estimate acceptance rates — <strong>HighLevel</strong> is the stronger choice. Its
-    automation depth is significantly greater than roofing-specific CRMs out of the box, and many
-    roofing marketing agencies already operate client campaigns on it, making onboarding faster
-    for companies working with an agency partner.
+    automation depth is generally greater than roofing-specific CRMs out of the box, and many
+    roofing marketing agencies already operate client campaigns on it, which can make onboarding
+    faster for companies working with an agency partner.
   </p>
   <p>
     If you are still early and budget is tight, <strong>HubSpot's free CRM</strong> is a functional
