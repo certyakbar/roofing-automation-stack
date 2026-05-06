@@ -1,0 +1,429 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import CTABox from '../../components/CTABox.astro';
+import RelatedGuides from '../../components/RelatedGuides.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const tools = [
+  {
+    name: 'GoHighLevel',
+    bestFor: 'All-in-one CRM + automation stack',
+    pricing: 'From ~$97/mo — verify with vendor',
+    roofingFit: 'Excellent' as const,
+    standout: 'Native text-back + full pipeline + SMS sequences',
+    affiliateHref: '#',
+  },
+  {
+    name: 'Hatch',
+    bestFor: 'Home services conversational follow-up',
+    pricing: 'Contact vendor for pricing',
+    roofingFit: 'Excellent' as const,
+    standout: 'Purpose-built for home services missed-call recovery',
+    affiliateHref: '#',
+  },
+  {
+    name: 'Podium',
+    bestFor: 'Messaging hub + reputation management',
+    pricing: 'Contact vendor for pricing',
+    roofingFit: 'Good' as const,
+    standout: 'Text-back bundled with reviews and team messaging',
+    affiliateHref: '#',
+  },
+  {
+    name: 'Phone system add-ons',
+    bestFor: 'Companies already on a business phone platform',
+    pricing: 'Varies — verify with your phone provider',
+    roofingFit: 'Moderate' as const,
+    standout: 'Some phone systems include basic missed-call SMS',
+  },
+];
+
+const faqs = [
+  {
+    question: 'How quickly should a missed-call text-back send?',
+    answer: 'Ideally within 60 seconds of the missed call. The faster the response, the higher the chance of re-engaging the caller before they move on to the next contractor. Most automation platforms can fire the SMS within 30–60 seconds. A text that arrives 10 minutes later is significantly less effective than one that arrives within the first minute.',
+  },
+  {
+    question: 'What should a roofing missed-call text-back say?',
+    answer: 'Keep it short, acknowledge the missed call, and invite a reply. Example: "Hi, we missed your call at [Company Name]. Happy to help — what roofing project are you working on?" Avoid generic messages like "A representative will contact you shortly." The goal is to start a two-way conversation, not replicate a voicemail recording.',
+  },
+  {
+    question: 'Does missed-call text-back work for after-hours calls?',
+    answer: 'Yes — and it may be most valuable for after-hours calls. Many homeowners call roofing companies in the evenings or on weekends when offices are closed. An automated text back immediately acknowledges the inquiry and sets the expectation for a morning follow-up call. Most platforms let you configure a separate message for after-hours that differs from your daytime text-back.',
+  },
+  {
+    question: 'Is missed-call text-back the same as an AI receptionist?',
+    answer: 'No. Missed-call text-back sends a single automated SMS after an unanswered call — it does not answer the phone. An AI receptionist answers the call in real time, converses with the caller, and can capture information and book appointments. Missed-call text-back is simpler and lower cost; AI receptionists are more capable but require more setup. The two tools complement each other — some roofing companies use an AI receptionist during business hours and missed-call text-back for after-hours or overflow.',
+  },
+  {
+    question: 'How do I connect missed-call text-back to my CRM?',
+    answer: 'It depends on the platform. GoHighLevel handles both natively — the missed call triggers the SMS, and any reply flows directly into the GHL CRM conversation inbox. Other tools like Podium and Hatch have their own inboxes and may require a Zapier integration or direct CRM connection to create a contact record in a separate pipeline. When evaluating tools, confirm whether missed-call contacts are automatically added to your pipeline or require manual entry.',
+  },
+  {
+    question: 'Does GoHighLevel include missed-call text-back?',
+    answer: 'Yes. Missed-call text-back is a native GoHighLevel feature that can be enabled and configured within the platform without additional integrations. The message content, timing, and routing are all customizable. Replies from the caller flow into the GHL conversations inbox where your team continues the conversation, and the contact can be automatically enrolled in a follow-up sequence.',
+  },
+];
+
+const relatedGuides = [
+  {
+    title: 'Missed Call Automation for Roofers',
+    href: `${base}/missed-calls/`,
+    description: 'Overview of all missed-call automation options for roofing companies.',
+  },
+  {
+    title: 'GoHighLevel for Roofers',
+    href: `${base}/gohighlevel-for-roofers/`,
+    description: 'How to use GoHighLevel for text-back, SMS follow-up, and pipeline automation.',
+  },
+  {
+    title: 'Lead Follow-Up Automation',
+    href: `${base}/lead-follow-up/`,
+    description: 'Multi-step follow-up sequences that start after first contact is made.',
+  },
+  {
+    title: 'Best CRM for Roofing Companies',
+    href: `${base}/best-crm-for-roofing-companies/`,
+    description: 'Compare CRM platforms by automation depth, roofing fit, and use case.',
+  },
+  {
+    title: 'Free Lead Follow-Up Checklist',
+    href: `${base}/templates/lead-follow-up-checklist/`,
+    description: 'Step-by-step checklist for implementing roofing lead follow-up automation.',
+  },
+];
+---
+
+<ArticleLayout
+  title="Roofing Missed-Call Text-Back Automation"
+  description="Learn how roofing companies can use missed-call text-back automation to recover missed inbound calls, respond faster to leads, and route prospects into CRM follow-up sequences."
+  showCTA={false}
+  faqs={[]}
+  relatedGuides={[]}
+>
+
+  <h2>Quick Answer</h2>
+  <p>
+    Missed-call text-back automation sends an SMS to any caller who does not reach a live person —
+    typically within 60 seconds of the missed call. For roofing companies, it is one of the
+    highest-leverage automations available because it may recover leads you have already paid to
+    generate, before those prospects call a competitor. Tools like
+    <a href={`${base}/gohighlevel-for-roofers/`}>GoHighLevel</a>, Hatch, and Podium can handle
+    this natively. When a lead replies, they can flow directly into your CRM inbox and follow-up
+    sequence without requiring manual action from your team.
+  </p>
+
+  <h2>Why Missed Calls Are Expensive for Roofing Companies</h2>
+  <p>
+    Every inbound call to a roofing company represents lead acquisition cost — paid search clicks,
+    yard signs, referral programs, door-knocking campaigns, storm canvassing, or months of organic
+    SEO work. When that call goes unanswered and the caller moves on, that cost is simply lost.
+    There is no partial credit for being the second company a homeowner calls back.
+  </p>
+  <p>
+    The roofing market is particularly unforgiving on response time. Homeowners shopping for
+    roofing estimates — especially after storm damage — often call 3–5 contractors in sequence and
+    proceed with whoever responds first and follows up consistently. In active storm restoration
+    markets, multiple companies may be canvassing the same neighborhood on the same day. Being
+    the second company to call back, even by a short window, can determine whether your estimate
+    is ever requested.
+  </p>
+  <p>
+    The compounding issue: missed calls tend to spike precisely when business is busiest. A team
+    handling multiple estimates, emergency tarps, and active jobs after a hailstorm is the same
+    team that is unavailable to answer new inbound calls. Without automation, high-volume periods
+    generate the most missed leads at the moment when recovery matters most.
+  </p>
+
+  <h2>How Missed-Call Text-Back Works</h2>
+  <p>
+    The mechanic is straightforward. When an inbound call to your business number goes unanswered
+    — whether the caller hangs up, reaches voicemail, or calls after hours — an automation trigger
+    fires. Within seconds, an SMS is sent from your business number to the caller's mobile phone.
+    The message acknowledges the missed call and invites a reply.
+  </p>
+  <p>
+    When the caller responds, their reply lands in your business conversations inbox. A team member
+    can continue the conversation manually, or the platform can automatically enroll the contact in
+    a follow-up sequence and create a record in your CRM pipeline. The automation runs continuously
+    — during business hours, after hours, on weekends, on holidays — without requiring any manual
+    involvement from your team until the moment a lead responds.
+  </p>
+
+  <h2>Best Use Cases for Roofing Missed-Call Text-Back</h2>
+
+  <h3>Google Ads and Paid Search Leads</h3>
+  <p>
+    Paid search leads are among the most expensive inbound contacts a roofing company generates.
+    When a homeowner clicks a Google Ads result, calls the number, and reaches voicemail, that
+    click cost may be lost. An automated text sent within 60 seconds of that missed call can
+    recover the lead while the prospect is still actively searching — before they scroll back up
+    and call the next result on the page.
+  </p>
+
+  <h3>Storm Restoration Leads</h3>
+  <p>
+    After a hail or wind event, inbound call volume to local roofing companies can spike sharply
+    over a 24–72 hour window. Teams already deployed on estimates and emergency tarps will miss
+    calls during the exact period when demand is highest. Missed-call text-back can help keep a
+    homeowner in your conversation queue while your team is in the field — so when a rep is
+    available, the lead may not have already hired a competitor.
+  </p>
+
+  <h3>After-Hours Calls</h3>
+  <p>
+    Many homeowners notice roof damage after work — when they get home, see a leak at night, or
+    have time on the weekend to research contractors. Calls placed between 6pm and 8am or on
+    weekends are almost universally missed by roofing offices. An automated text back acknowledges
+    the inquiry immediately: <em>"Hi, thanks for calling [Company Name]. We're closed right now
+    but will call you first thing in the morning — what can we help you with?"</em> The homeowner
+    gets confirmation their call was received; your team has a warm lead queued when they open.
+  </p>
+
+  <h3>Sales Reps on Job Sites</h3>
+  <p>
+    Roofing sales reps spend significant time on rooftops, in attics, and in conversations with
+    homeowners — situations where answering an inbound call is not practical. Calls to a shared
+    company line or a rep's direct number may go to voicemail without acknowledgment. Automated
+    text-back means a prospect who cannot reach anyone still receives an immediate response and
+    can be held in the pipeline until a rep is available.
+  </p>
+
+  <h3>Emergency Repair Inquiries</h3>
+  <p>
+    Emergency repair calls — an active leak, storm damage to a structure, or a fallen tree through
+    a roof — carry high urgency. A homeowner with water coming through their ceiling will not
+    wait several hours for a callback. A text arriving within a minute of their call —
+    <em>"We saw you called about an emergency — someone will call you back within the hour"</em>
+    — sets an expectation and can keep them from immediately calling the next contractor. Emergency
+    repair leads are among the highest-value inbound contacts a roofing company receives, which
+    makes recovery from a missed call particularly important.
+  </p>
+
+  <h2>Example Missed-Call SMS Templates for Roofers</h2>
+  <p>
+    The following templates are starting points. Customize them to match your company's tone and
+    market. Shorter and more conversational copy generally performs better than formal or corporate
+    language.
+  </p>
+
+  <div class="sms-template">
+    <p class="sms-label">General inbound</p>
+    <p>"Hi, we missed your call at [Company Name]. Happy to help — what roofing project can we assist with? We'll get back to you shortly."</p>
+  </div>
+
+  <div class="sms-template">
+    <p class="sms-label">After-hours</p>
+    <p>"Hi, thanks for calling [Company Name]. Our office is closed right now. Reply here and we'll follow up first thing in the morning — what's going on with your roof?"</p>
+  </div>
+
+  <div class="sms-template">
+    <p class="sms-label">Storm damage / emergency</p>
+    <p>"We missed your call at [Company Name]. If you have storm damage or an active leak, reply here and someone will call you back within the hour."</p>
+  </div>
+
+  <div class="sms-template">
+    <p class="sms-label">Free estimate inquiry</p>
+    <p>"Hi, we missed your call. We offer free roof inspections and estimates for [City] homeowners. Want us to get you scheduled? — [Company Name]"</p>
+  </div>
+
+  <div class="sms-template">
+    <p class="sms-label">Insurance / storm restoration</p>
+    <p>"Hi, we saw you called [Company Name]. If you're dealing with storm damage and an insurance claim, reply here — we can walk you through the process."</p>
+  </div>
+
+  <h2>Suggested Workflow: Missed Call to CRM Follow-Up</h2>
+  <p>
+    A well-configured missed-call text-back does more than send a single SMS — it routes the lead
+    into your pipeline and starts the follow-up process automatically. Here is a practical
+    end-to-end workflow for roofing companies:
+  </p>
+  <ol>
+    <li>
+      <strong>Missed call occurs.</strong> An inbound call to your business number goes unanswered
+      — the caller hangs up, reaches voicemail, or calls outside business hours.
+    </li>
+    <li>
+      <strong>Automatic SMS sends within 60 seconds.</strong> The automation trigger fires
+      immediately. The caller receives a text from your business number acknowledging the missed
+      call and inviting a reply.
+    </li>
+    <li>
+      <strong>A contact record is created or updated in your CRM.</strong> The caller's phone
+      number is automatically added as a new contact in your pipeline at the "New Lead" stage.
+      If the number already exists, the system links the event to the existing record.
+    </li>
+    <li>
+      <strong>The reply flows into the team inbox.</strong> When the caller responds to the text,
+      the message lands in your business conversations inbox. An assigned team member is notified
+      and picks up the conversation manually.
+    </li>
+    <li>
+      <strong>If no reply within a set window, a follow-up sequence can start.</strong> If the
+      caller does not respond to the initial text within 15–30 minutes, an additional automation
+      can trigger: a second text later in the day, a voicemail drop, or a task assigned to a rep
+      to attempt a manual callback.
+    </li>
+    <li>
+      <strong>Lead is assigned and enters the active pipeline.</strong> Once contact is made —
+      through the text thread or a callback — the lead moves forward through your standard
+      <a href={`${base}/crm/`}>roofing CRM pipeline stages</a>: Contacted, Inspection Scheduled,
+      Estimate Sent, and so on.
+    </li>
+  </ol>
+
+  <h2>Tools That Can Support This Workflow</h2>
+
+  <h3>GoHighLevel</h3>
+  <p>
+    Missed-call text-back is a native GoHighLevel feature requiring no additional integrations.
+    The trigger, message content, timing, and routing are configurable within the platform.
+    Replies flow into GHL's conversations inbox, and the caller can be automatically enrolled in
+    a follow-up sequence. Because GoHighLevel also handles CRM, pipeline management, and broader
+    follow-up automation, it can manage the full workflow — from missed call through pipeline
+    close — in a single system.
+  </p>
+  <p>
+    See the full guide: <a href={`${base}/gohighlevel-for-roofers/`}>GoHighLevel for Roofers</a>
+  </p>
+
+  <h3>Call Tracking Tools</h3>
+  <p>
+    Call tracking platforms track which ads, keywords, and channels drive inbound calls — and
+    some include missed-call notification or basic text-back features. For roofing companies
+    running Google Ads, call tracking adds attribution data to each missed call so you know
+    which campaign the lead came from. Most call tracking tools require a separate CRM or
+    automation platform to handle the full follow-up workflow rather than managing it natively.
+  </p>
+
+  <h3>AI Receptionist Tools</h3>
+  <p>
+    AI receptionist tools differ from missed-call text-back in that they answer the call in real
+    time rather than responding via SMS after the fact. If the goal is to answer every call rather
+    than recover missed ones, an AI receptionist may be a better fit for that specific gap. The
+    two are complementary: some roofing companies use an AI receptionist during business hours
+    and missed-call text-back for after-hours overflow.
+  </p>
+
+  <h3>Hatch, Podium, and General SMS Platforms</h3>
+  <p>
+    Hatch is a purpose-built conversational follow-up platform for home services, with missed-call
+    text-back as one of its core trigger types. Podium bundles missed-call text-back with its
+    broader messaging and review management platform. Both integrate with common CRMs. General
+    business SMS platforms can also handle this function via webhook or Zapier integration, though
+    they require more configuration to create a complete workflow.
+  </p>
+
+  <ComparisonTable
+    tools={tools}
+    caption="Missed-call text-back tools for roofing companies"
+  />
+
+  <h2>Mistakes to Avoid</h2>
+
+  <h3>Replying Too Slowly After the Automated Text</h3>
+  <p>
+    The automated text opens the conversation — it does not close it. If a lead replies to your
+    text and a human does not respond within a few minutes during business hours, the advantage
+    the automation created is partially lost. Assign someone to monitor the inbox actively during
+    business hours and set a clear response-time expectation for the team.
+  </p>
+
+  <h3>Using Robotic or Generic Copy</h3>
+  <p>
+    Messages that read like system notifications tend to be ignored or generate negative reactions.
+    <em>"Your call is important to us. A representative will contact you shortly."</em> performs
+    poorly compared to a conversational, specific message written the way your best sales rep
+    would text a homeowner. Keep it warm, direct, and specific to what your company does.
+  </p>
+
+  <h3>Sending Messages Outside Reasonable Hours Without Context</h3>
+  <p>
+    A text at 11pm to someone who called about an emergency leak is appropriate. A standard
+    estimate-inquiry text-back at 11pm with no acknowledgment of the time is less welcome.
+    Configure context-aware messaging: a softer after-hours variant that tells the caller when
+    you will follow up, rather than treating all missed calls identically regardless of when
+    they occurred.
+  </p>
+
+  <h3>Not Assigning Inbox Ownership</h3>
+  <p>
+    A shared inbox with no assigned owner is effectively the same as no inbox. Replies that land
+    in a shared team view and are not acknowledged quickly become lost leads a second time. Assign
+    a specific person — or a defined rotation — to monitor and respond to incoming texts during
+    business hours. For after-hours replies, set a clear expectation (first response at 8am, or
+    an on-call rep for emergencies).
+  </p>
+
+  <h3>Not Connecting Missed Calls to Pipeline Stages</h3>
+  <p>
+    A missed-call text-back that sends an SMS but never creates a contact record in your CRM is
+    a conversational island. If the rep helps the lead via text but no pipeline record exists,
+    that lead has no follow-up automation, no visibility for management, and no history if they
+    call again later. Every missed-call event should automatically create or update a contact in
+    your <a href={`${base}/best-crm-for-roofing-companies/`}>roofing CRM pipeline</a>.
+  </p>
+
+  <h2>Final Recommendation</h2>
+  <p>
+    Missed-call text-back is not a complex or expensive automation — but it may offer the highest
+    ROI relative to setup effort of any automation available to a roofing company. The lead
+    acquisition cost has already been spent. The only remaining question is whether your business
+    recovers the lead or loses it to a competitor who responds faster.
+  </p>
+  <p>
+    If your roofing company is already on GoHighLevel, enabling missed-call text-back should be
+    one of the first configurations you complete — ahead of landing page work, complicated nurture
+    sequences, or other automation projects. If you are not on GoHighLevel, evaluate whether
+    Hatch or Podium fits your existing stack before adding a new platform.
+  </p>
+  <p>
+    The text-back itself is only half of the workflow. Configure the CRM integration and follow-up
+    sequence alongside it. The text recovers the conversation; the pipeline and follow-up
+    automation close the lead. Both parts are needed for the automation to consistently improve
+    your close rate rather than just improving your first-contact rate.
+  </p>
+  <p>
+    For a full comparison of platforms that support this workflow, see our guide to
+    <a href={`${base}/best-crm-for-roofing-companies/`}>Best CRM for Roofing Companies</a> and
+    the <a href={`${base}/gohighlevel-for-roofers/`}>GoHighLevel for Roofers</a> deep dive.
+    To see how text-back fits into a broader follow-up system, read our
+    <a href={`${base}/lead-follow-up/`}>Lead Follow-Up Automation</a> guide.
+  </p>
+
+  <FAQSection items={faqs} />
+
+  <CTABox />
+
+  <RelatedGuides guides={relatedGuides} />
+
+</ArticleLayout>
+
+<style>
+  .sms-template {
+    background: #f0fdf4;
+    border-left: 3px solid #16a34a;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 0.85rem 1.1rem;
+    margin: 0.75rem 0 1rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .sms-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #15803d;
+    margin: 0 0 0.4rem;
+  }
+
+  .sms-template p:last-child {
+    margin: 0;
+    color: #1f2937;
+  }
+</style>
