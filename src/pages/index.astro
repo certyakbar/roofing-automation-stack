@@ -1,0 +1,288 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABox from '../components/CTABox.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const categories = [
+  {
+    href: `${base}/crm/`,
+    icon: '🏠',
+    title: 'CRM for Roofers',
+    description: 'Compare CRMs built for or commonly used by roofing companies. Track leads, manage jobs, and close more deals.',
+  },
+  {
+    href: `${base}/lead-follow-up/`,
+    icon: '📲',
+    title: 'Lead Follow-Up Automation',
+    description: 'Automate follow-up sequences so no lead goes cold. Texts, emails, and voicedrops on autopilot.',
+  },
+  {
+    href: `${base}/missed-calls/`,
+    icon: '📞',
+    title: 'Missed Call Automation',
+    description: 'Instantly text back every missed call. Convert more inbound leads without adding staff.',
+  },
+  {
+    href: `${base}/ai-receptionists/`,
+    icon: '🤖',
+    title: 'AI Receptionists',
+    description: 'AI-powered phone agents that answer calls, qualify leads, and book appointments 24/7.',
+  },
+  {
+    href: `${base}/call-tracking/`,
+    icon: '📊',
+    title: 'Call Tracking',
+    description: 'Track which ads, channels, and keywords drive inbound calls to your roofing business.',
+  },
+  {
+    href: `${base}/outbound/`,
+    icon: '📤',
+    title: 'Outbound Sales Automation',
+    description: 'Power dialers, ringless voicemail, and outbound sequences for roofing sales teams.',
+  },
+  {
+    href: `${base}/comparisons/`,
+    icon: '⚖️',
+    title: 'Tool Comparisons',
+    description: 'Side-by-side comparisons of the top roofing automation tools.',
+  },
+  {
+    href: `${base}/calculators/`,
+    icon: '🧮',
+    title: 'ROI Calculators',
+    description: 'Calculate the ROI of automating your lead follow-up, missed calls, and more.',
+  },
+];
+
+const benefits = [
+  'Stop losing jobs to faster-responding competitors',
+  'Follow up with every lead — even at 11pm',
+  'Know exactly which ads drive your inbound calls',
+  'Book estimates while your team is on the roof',
+  'Scale without proportionally growing your office staff',
+];
+---
+
+<BaseLayout
+  title="Roofing Automation Stack — CRM, Lead Follow-Up & AI Tools for Roofers"
+  description="Compare the best CRM, lead follow-up, missed-call automation, AI receptionist, and call tracking tools for roofing companies. Unbiased guides for roofing owners and sales managers."
+>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="hero-eyebrow">For Roofing Owners & Sales Managers</p>
+        <h1>The Roofing Automation Stack</h1>
+        <p class="hero-sub">
+          Cut-through guides to the CRM, lead follow-up, missed call, AI receptionist, and sales automation tools that roofing companies actually use to close more jobs without burning out their office staff.
+        </p>
+        <div class="hero-actions">
+          <a href={`${base}/lead-follow-up/`} class="btn-hero-primary">Compare Lead Follow-Up Tools →</a>
+          <a href={`${base}/templates/lead-follow-up-checklist/`} class="btn-hero-secondary">Free Checklist</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Automate -->
+  <section class="why-section">
+    <div class="container">
+      <h2>Why Roofing Companies Automate</h2>
+      <ul class="benefit-list">
+        {benefits.map(b => (
+          <li>
+            <span class="check" aria-hidden="true">✓</span>
+            {b}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Category Grid -->
+  <section class="categories-section">
+    <div class="container">
+      <h2>Explore the Stack</h2>
+      <div class="category-grid">
+        {categories.map(cat => (
+          <a href={cat.href} class="category-card">
+            <span class="cat-icon" aria-hidden="true">{cat.icon}</span>
+            <h3 class="cat-title">{cat.title}</h3>
+            <p class="cat-description">{cat.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="container">
+    <CTABox />
+  </div>
+
+  <!-- Quick disclaimer -->
+  <section class="disclaimer-section">
+    <div class="container">
+      <p class="disclaimer-text">
+        <strong>Editorial note:</strong> Roofing Automation Stack is an independent affiliate site. We earn commissions when you purchase through our links. Our guides are based on publicly available product information, user reviews, and category research — not necessarily hands-on testing of every tool listed. Verify pricing and features with each vendor before purchasing.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #0f2744 100%);
+    color: #fff;
+    padding: 4rem 0 3.5rem;
+  }
+
+  .hero-inner { max-width: 760px; }
+
+  .hero-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero h1 { color: #fff; margin-bottom: 1rem; }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: #cbd5e0;
+    max-width: 60ch;
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .btn-hero-primary {
+    display: inline-block;
+    background: var(--color-accent);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: background 0.15s;
+  }
+
+  .btn-hero-primary:hover { background: var(--color-accent-hover); color: #fff; }
+
+  .btn-hero-secondary {
+    display: inline-block;
+    background: transparent;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid rgba(255,255,255,0.35);
+    transition: background 0.15s;
+  }
+
+  .btn-hero-secondary:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+  /* Why */
+  .why-section {
+    padding: 3rem 0;
+    background: var(--color-bg-alt);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .benefit-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .benefit-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    padding: 0.6rem 0.75rem;
+    background: #fff;
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+  }
+
+  .check {
+    color: var(--color-success);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* Categories */
+  .categories-section {
+    padding: 3.5rem 0;
+  }
+
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .category-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    background: #fff;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .category-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  }
+
+  .cat-icon { font-size: 1.75rem; }
+
+  .cat-title {
+    font-size: 1.05rem;
+    color: var(--color-primary);
+    margin: 0;
+  }
+
+  .cat-description {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* Disclaimer */
+  .disclaimer-section {
+    padding: 1.5rem 0 2rem;
+  }
+
+  .disclaimer-text {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    max-width: 80ch;
+    margin: 0;
+    line-height: 1.55;
+    border-top: 1px solid var(--color-border);
+    padding-top: 1.25rem;
+  }
+</style>

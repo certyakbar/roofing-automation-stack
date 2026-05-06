@@ -1,0 +1,58 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import RelatedGuides from '../../components/RelatedGuides.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const tableTools = [
+  { name: 'Missed Call Text Back (GHL)', bestFor: 'GHL users', pricing: 'Included in GHL plan', roofingFit: 'Good' as const, standout: 'Native GHL feature, easy to enable' },
+  { name: 'Hatch', bestFor: 'Home services companies', pricing: 'Contact vendor', roofingFit: 'Excellent' as const, standout: 'Conversational follow-up after missed calls' },
+  { name: 'Podium', bestFor: 'Multi-location businesses', pricing: 'Contact vendor', roofingFit: 'Good' as const, standout: 'Messaging hub + missed call text back' },
+  { name: 'Birdeye', bestFor: 'Review + messaging combo', pricing: 'Contact vendor', roofingFit: 'Good' as const, standout: 'Combines reputation + missed call automation' },
+];
+
+const faqs = [
+  {
+    question: 'What is missed call text back?',
+    answer: 'Missed call text back automatically sends a text message to anyone who calls your business and does not reach a live person. The text usually acknowledges the missed call and invites the caller to respond or book an appointment.',
+  },
+  {
+    question: 'Does missed call text back actually work for roofing?',
+    answer: 'Yes. Roofing leads — especially after a storm — often call multiple contractors. If you miss a call and a competitor answers or texts back first, you lose the job. An automated text back keeps you in the conversation until someone from your team can call back.',
+  },
+  {
+    question: 'Can I set this up without GoHighLevel?',
+    answer: 'Yes. Several tools offer standalone missed call text back. Some phone systems (like Grasshopper or RingCentral) have this as a built-in feature. Podium, Birdeye, and others also offer it as part of their messaging suite.',
+  },
+];
+
+const relatedGuides = [
+  { title: 'Lead Follow-Up Automation', href: `${base}/lead-follow-up/`, description: 'Full follow-up sequences for roofing leads.' },
+  { title: 'AI Receptionists', href: `${base}/ai-receptionists/`, description: 'AI that answers every call so you never miss one.' },
+  { title: 'CRM for Roofing Companies', href: `${base}/crm/`, description: 'Compare roofing CRMs.' },
+];
+---
+
+<CategoryLayout
+  title="Missed Call Text Back for Roofing Companies (2025)"
+  description="Compare missed call automation tools for roofing businesses. Automatically text back every missed call to capture leads before they call your competitors."
+  category="Missed Calls"
+  intro="Every missed call from a roofing lead is a potential job that goes to your competitor. Missed call text back automation sends an instant text to anyone who called but didn't reach you — keeping the conversation alive until your team can respond."
+>
+  <AffiliateDisclosure />
+
+  <h2>Quick Answer</h2>
+  <p>If you're already on <strong>GoHighLevel</strong>, missed call text back is a built-in feature you can enable today. For roofing companies not on GHL, <strong>Hatch</strong> is worth evaluating for its home services focus. <strong>Podium</strong> is a good option if you want missed call text back bundled with a broader messaging and reviews platform.</p>
+
+  <h2>Comparison Table</h2>
+  <ComparisonTable tools={tableTools} caption="Missed call automation tools for roofing — 2025" />
+
+  <h2>Why Missed Calls Kill Roofing Revenue</h2>
+  <p>Roofing leads — especially storm leads — are time-sensitive. A homeowner who just had a branch hit their roof is not waiting 4 hours for a callback. They're calling 3–5 contractors and going with whoever responds first. Missed call text back ensures you stay in the running even if your team is busy on another job.</p>
+
+  <FAQSection items={faqs} />
+  <RelatedGuides guides={relatedGuides} />
+</CategoryLayout>

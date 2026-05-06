@@ -1,0 +1,63 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import RelatedGuides from '../../components/RelatedGuides.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const tableTools = [
+  { name: 'PhoneBurner', bestFor: 'High-volume outbound calling teams', pricing: '~$149/user/mo', roofingFit: 'Good' as const, standout: 'Power dialer, no awkward pauses' },
+  { name: 'SlyDial / Stratics', bestFor: 'Ringless voicemail drops', pricing: 'Per-drop pricing', roofingFit: 'Good' as const, standout: 'Deliver voicemails without calling' },
+  { name: 'Mojo Dialer', bestFor: 'Real estate & home services canvassing', pricing: '~$99/user/mo', roofingFit: 'Good' as const, standout: 'Triple-line dialer for door-knock follow-up' },
+  { name: 'GoHighLevel', bestFor: 'Outbound + follow-up in one platform', pricing: '~$97/mo', roofingFit: 'Good' as const, standout: 'Ringless voicemail + automated sequences' },
+];
+
+const faqs = [
+  {
+    question: 'Is ringless voicemail legal for roofing companies?',
+    answer: 'Ringless voicemail is subject to TCPA regulations in the US. The legal status has been debated, and rules vary by state. Always consult a legal professional and ensure you have proper consent before using ringless voicemail in your outbound campaigns.',
+  },
+  {
+    question: 'What is a power dialer and do roofing companies use them?',
+    answer: 'A power dialer automatically dials the next number on your list the moment a call ends, eliminating manual dialing time. Roofing companies with dedicated sales teams — especially those doing door-to-door or storm canvassing — use power dialers to maximize contact rates.',
+  },
+  {
+    question: 'What outbound approach works best for storm restoration roofing?',
+    answer: "Storm restoration teams often combine: (1) canvassing for door-to-door leads, (2) ringless voicemail to adjacent streets after a storm, and (3) power dialing follow-up lists. The sequencing and scripts matter as much as the tools.",
+  },
+];
+
+const relatedGuides = [
+  { title: 'Lead Follow-Up Automation', href: `${base}/lead-follow-up/`, description: 'Automate follow-up for inbound leads.' },
+  { title: 'Call Tracking', href: `${base}/call-tracking/`, description: 'Track which outbound campaigns convert.' },
+  { title: 'CRM for Roofing', href: `${base}/crm/`, description: 'Manage your outbound pipeline in a CRM.' },
+];
+---
+
+<CategoryLayout
+  title="Outbound Sales Automation for Roofing Companies (2025)"
+  description="Compare power dialers, ringless voicemail, and outbound automation tools for roofing sales teams. Increase contact rates for storm restoration and residential canvassing."
+  category="Outbound"
+  intro="Outbound sales automation — power dialers, ringless voicemail drops, and automated sequences — helps roofing sales teams make more contacts per hour and follow up with canvassed or purchased lead lists without manual dialing."
+>
+  <AffiliateDisclosure />
+
+  <h2>Quick Answer</h2>
+  <p>For roofing companies with a dedicated sales team doing high-volume outbound, <strong>PhoneBurner</strong> is the most commonly cited power dialer. For ringless voicemail campaigns — common in storm restoration — <strong>Stratics Networks</strong> and <strong>GoHighLevel's</strong> built-in voicemail drop are popular. Note: ringless voicemail is subject to TCPA rules — verify compliance before use.</p>
+
+  <h2>Comparison Table</h2>
+  <ComparisonTable tools={tableTools} caption="Outbound sales tools for roofing companies — 2025" />
+
+  <h2>Outbound Strategies for Roofing</h2>
+  <ul>
+    <li><strong>Storm canvassing follow-up</strong> — power dial the list of homes you knocked before or after a storm</li>
+    <li><strong>Ringless voicemail drops</strong> — send personalized voicemail messages to targeted neighborhoods</li>
+    <li><strong>Re-engagement campaigns</strong> — reach old leads or past customers who are due for an inspection</li>
+    <li><strong>Commercial canvassing</strong> — systematic outreach to commercial property managers</li>
+  </ul>
+
+  <FAQSection items={faqs} />
+  <RelatedGuides guides={relatedGuides} />
+</CategoryLayout>

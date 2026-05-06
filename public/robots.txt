@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://certyakbar.github.io/roofing-automation-stack/sitemap-index.xml

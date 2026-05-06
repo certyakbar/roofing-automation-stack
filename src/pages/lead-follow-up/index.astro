@@ -1,0 +1,65 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import RelatedGuides from '../../components/RelatedGuides.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const tableTools = [
+  { name: 'GoHighLevel', bestFor: 'Agencies & automation-heavy ops', pricing: '~$97/mo+', roofingFit: 'Good' as const, standout: 'All-in-one: CRM + automation + funnels' },
+  { name: 'FollowUpBoss', bestFor: 'High-volume inbound leads', pricing: '~$69/user/mo', roofingFit: 'Good' as const, standout: 'Speed-to-lead focus, strong integrations' },
+  { name: 'Hatch', bestFor: 'Home services follow-up', pricing: 'Contact vendor', roofingFit: 'Excellent' as const, standout: 'Purpose-built for home services conversations' },
+  { name: 'Lofty (Chime)', bestFor: 'AI-assisted follow-up', pricing: 'Contact vendor', roofingFit: 'Moderate' as const, standout: 'AI nurture for long-cycle leads' },
+];
+
+const faqs = [
+  {
+    question: 'How fast should a roofing company follow up with a new lead?',
+    answer: 'The widely cited benchmark is within 5 minutes of a lead coming in. Response rates drop significantly after 30 minutes. Automation removes the human delay — a text or email can go out instantly when a form is submitted or a missed call is logged.',
+  },
+  {
+    question: 'What should a roofing lead follow-up sequence include?',
+    answer: '<p>A basic sequence for roofing leads:</p><ul><li>Immediate text (within seconds of lead submission)</li><li>Immediate or 5-min email</li><li>Follow-up text at 1 hour if no response</li><li>Follow-up call attempt at 2–4 hours</li><li>Day 2 and Day 4 follow-up touches</li><li>Long-tail nurture for leads that go cold</li></ul>',
+  },
+  {
+    question: 'Do I need separate follow-up software or is it built into my CRM?',
+    answer: 'Most roofing-specific CRMs have some follow-up automation, but depth varies. If your CRM follow-up is limited to basic drip emails, a dedicated tool like Hatch or GoHighLevel sequences can meaningfully improve contact rates.',
+  },
+];
+
+const relatedGuides = [
+  { title: 'Missed Call Automation', href: `${base}/missed-calls/`, description: 'Text back every missed call automatically.' },
+  { title: 'CRM for Roofing Companies', href: `${base}/crm/`, description: 'Compare CRMs built for roofing.' },
+  { title: 'Free Lead Follow-Up Checklist', href: `${base}/templates/lead-follow-up-checklist/`, description: 'Download our step-by-step automation checklist.' },
+];
+---
+
+<CategoryLayout
+  title="Lead Follow-Up Automation for Roofing Companies (2025)"
+  description="Compare the best lead follow-up automation tools for roofing companies. Automate texts, emails, and voicedrops so no roofing lead goes cold."
+  category="Lead Follow-Up"
+  intro="The fastest-responding roofing company wins the job — not always the best-priced one. Lead follow-up automation sends immediate texts and emails the moment a lead comes in, so your speed-to-lead is never dependent on whether someone in your office is available."
+>
+  <AffiliateDisclosure />
+
+  <h2>Quick Answer</h2>
+  <p>For roofing companies that want purpose-built home services follow-up, <strong>Hatch</strong> is worth evaluating. For companies that want an all-in-one platform with CRM + automation, <strong>GoHighLevel</strong> is popular with roofing agencies. If your CRM already has automation capability, audit what it can do before adding another tool.</p>
+
+  <h2>Comparison Table</h2>
+  <ComparisonTable tools={tableTools} caption="Lead follow-up automation tools for roofing — 2025" />
+
+  <h2>How Roofing Lead Follow-Up Automation Works</h2>
+  <p>When a lead comes in — from a form, missed call, or ad — an automated sequence fires:</p>
+  <ol>
+    <li>Instant text to the lead acknowledging their inquiry</li>
+    <li>Email with a brief intro and next step</li>
+    <li>Follow-up attempts at 1hr, 4hr, 24hr if no response</li>
+    <li>Long-tail nurture for leads that don't respond in the first week</li>
+  </ol>
+  <p>The goal is to make human contact before the lead calls your competitor.</p>
+
+  <FAQSection items={faqs} />
+  <RelatedGuides guides={relatedGuides} />
+</CategoryLayout>

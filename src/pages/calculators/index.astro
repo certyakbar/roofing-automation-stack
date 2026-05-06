@@ -1,0 +1,40 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+---
+
+<CategoryLayout
+  title="Roofing Automation ROI Calculators"
+  description="Free ROI calculators for roofing companies evaluating CRM, lead follow-up automation, AI receptionists, and call tracking tools."
+  category="Calculators"
+  intro="These calculators help roofing owners and sales managers estimate the return on automation tools before committing to a subscription."
+>
+  <div class="calc-coming-soon">
+    <p class="calc-icon" aria-hidden="true">🧮</p>
+    <h2>Calculators Coming Soon</h2>
+    <p>We're building interactive ROI calculators for:</p>
+    <ul>
+      <li>Lead Follow-Up Automation — estimated jobs recovered from faster response</li>
+      <li>Missed Call Text Back — estimated revenue from captured missed calls</li>
+      <li>AI Receptionist — estimated cost vs. human receptionist</li>
+      <li>CRM Adoption — time saved per week on manual follow-up</li>
+    </ul>
+    <p>In the meantime, download the free <a href={import.meta.env.BASE_URL + '/templates/lead-follow-up-checklist/'}>Lead Follow-Up Automation Checklist</a> to start implementing today.</p>
+  </div>
+</CategoryLayout>
+
+<style>
+  .calc-coming-soon {
+    text-align: center;
+    padding: 3rem 1rem;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .calc-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+  .calc-coming-soon ul {
+    text-align: left;
+    display: inline-block;
+    margin: 1rem 0;
+  }
+</style>

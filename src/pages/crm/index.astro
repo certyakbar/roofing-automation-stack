@@ -1,0 +1,121 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import ToolCard from '../../components/ToolCard.astro';
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import RelatedGuides from '../../components/RelatedGuides.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const tools = [
+  {
+    name: 'JobNimbus',
+    tagline: 'Built specifically for roofing and exterior contractors',
+    description: 'JobNimbus is a roofing-specific CRM that combines contact management, job tracking, proposals, and photo documentation. Widely used in the storm restoration and residential roofing segments.',
+    bestFor: 'Residential and storm restoration roofing companies',
+    pricing: 'Starts around $25/user/month (verify current pricing with vendor)',
+    badge: 'Popular Choice',
+  },
+  {
+    name: 'AccuLynx',
+    tagline: 'End-to-end roofing business management',
+    description: 'AccuLynx is a dedicated roofing software with CRM, production scheduling, material ordering integrations, and subcontractor management built in.',
+    bestFor: 'Larger roofing operations with production management needs',
+    pricing: 'Contact vendor for pricing',
+  },
+  {
+    name: 'GoHighLevel',
+    tagline: 'All-in-one marketing and CRM platform',
+    description: "GoHighLevel isn't roofing-specific but is popular with roofing marketing agencies and owners who want built-in automation, landing pages, and follow-up sequences alongside their CRM.",
+    bestFor: 'Roofing companies running their own marketing or working with agencies on GHL',
+    pricing: 'Starts around $97/month (verify current pricing with vendor)',
+  },
+  {
+    name: 'HubSpot CRM',
+    tagline: 'Free CRM with scalable marketing add-ons',
+    description: "HubSpot's free CRM tier is used by some roofing companies that want a no-cost starting point. It lacks roofing-specific features but integrates broadly.",
+    bestFor: 'Early-stage roofing companies or those already in the HubSpot ecosystem',
+    pricing: 'Free tier available; paid plans start higher',
+  },
+];
+
+const tableTools = tools.map(t => ({
+  name: t.name,
+  bestFor: t.bestFor,
+  pricing: t.pricing,
+  roofingFit: t.name === 'JobNimbus' || t.name === 'AccuLynx' ? 'Excellent' as const
+    : t.name === 'GoHighLevel' ? 'Good' as const
+    : 'Moderate' as const,
+  standout: t.name === 'JobNimbus' ? 'Photo docs & storm workflows'
+    : t.name === 'AccuLynx' ? 'Material ordering integration'
+    : t.name === 'GoHighLevel' ? 'Built-in automation & funnels'
+    : 'Free tier, broad integrations',
+}));
+
+const faqs = [
+  {
+    question: 'Do I need a roofing-specific CRM or will a general one work?',
+    answer: 'Roofing-specific CRMs (like JobNimbus or AccuLynx) come pre-built with roofing workflows — photo documentation, storm restoration pipelines, material tracking. General CRMs can work but require more setup and customization. For most residential and storm restoration companies, a roofing-specific tool saves significant configuration time.',
+  },
+  {
+    question: 'Can a CRM help with lead follow-up automation?',
+    answer: "Yes — most modern CRMs support automated follow-up sequences via text and email. However, roofing-specific CRMs vary widely in automation depth. If automation is your primary goal, you may want to pair a CRM with a dedicated follow-up tool, or choose a platform like GoHighLevel that has both.",
+  },
+  {
+    question: 'What should I look for in a roofing CRM?',
+    answer: 'Key features: lead management pipeline, proposal/estimate generation, photo documentation, mobile app for field teams, follow-up automation, and integrations with your existing tools (Google, QuickBooks, etc.).',
+  },
+];
+
+const relatedGuides = [
+  { title: 'Lead Follow-Up Automation', href: `${base}/lead-follow-up/`, description: 'Automate your follow-up sequences for roofing leads.' },
+  { title: 'Missed Call Automation', href: `${base}/missed-calls/`, description: 'Instantly text back every missed inbound call.' },
+  { title: 'AI Receptionists for Roofers', href: `${base}/ai-receptionists/`, description: 'AI that answers your phones and qualifies leads 24/7.' },
+];
+---
+
+<CategoryLayout
+  title="Best CRM for Roofing Companies (2025 Guide)"
+  description="Compare the top CRM platforms for roofing companies. Includes roofing-specific CRMs and general tools used by roofers, with honest notes on roofing fit, pricing, and best use cases."
+  category="CRM"
+  intro="A roofing CRM is the hub of your sales operation — it tracks leads, manages your pipeline, stores job photos, and drives follow-up. This guide compares the platforms most commonly used by roofing companies."
+>
+  <AffiliateDisclosure />
+
+  <h2>Quick Answer</h2>
+  <p>For most residential and storm restoration roofing companies, <strong>JobNimbus</strong> and <strong>AccuLynx</strong> are the most purpose-built options. Roofing marketing agencies and owners who want deep automation in a single platform often lean toward <strong>GoHighLevel</strong>. If you're just starting out and budget is tight, <strong>HubSpot's free CRM</strong> is a reasonable starting point before migrating.</p>
+
+  <h2>CRM Comparison Table</h2>
+  <ComparisonTable tools={tableTools} caption="CRM tools compared for roofing companies — 2025" />
+
+  <h2>Tool Overviews</h2>
+  <div class="tools-grid">
+    {tools.map(tool => (
+      <ToolCard {...tool} />
+    ))}
+  </div>
+
+  <h2>What to Look for in a Roofing CRM</h2>
+  <p>Before choosing a CRM, audit what you actually need:</p>
+  <ul>
+    <li><strong>Pipeline visibility</strong> — can you see every lead at every stage at a glance?</li>
+    <li><strong>Mobile access</strong> — your sales reps are in the field, not at a desk</li>
+    <li><strong>Photo documentation</strong> — storing roof photos tied to a job record</li>
+    <li><strong>Proposal generation</strong> — building and sending estimates from inside the CRM</li>
+    <li><strong>Follow-up automation</strong> — automatic texts and emails when a lead goes quiet</li>
+    <li><strong>Integrations</strong> — QuickBooks, Google, and any existing tools you use</li>
+  </ul>
+
+  <FAQSection items={faqs} />
+  <RelatedGuides guides={relatedGuides} />
+</CategoryLayout>
+
+<style>
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+  }
+</style>

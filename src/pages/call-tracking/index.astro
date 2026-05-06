@@ -1,0 +1,64 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import RelatedGuides from '../../components/RelatedGuides.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const tableTools = [
+  { name: 'CallRail', bestFor: 'Marketing attribution & call recording', pricing: '~$45/mo+', roofingFit: 'Excellent' as const, standout: 'Industry standard for tracking calls to marketing sources' },
+  { name: 'CallTrackingMetrics', bestFor: 'Advanced routing + attribution', pricing: '~$39/mo+', roofingFit: 'Good' as const, standout: 'Strong call routing and scoring features' },
+  { name: 'WhatConverts', bestFor: 'Lead attribution beyond calls', pricing: '~$30/mo+', roofingFit: 'Good' as const, standout: 'Tracks calls, forms, chats from a single dashboard' },
+  { name: 'Marchex', bestFor: 'Enterprise call analytics', pricing: 'Contact vendor', roofingFit: 'Moderate' as const, standout: 'AI call analysis and enterprise integrations' },
+];
+
+const faqs = [
+  {
+    question: 'What is call tracking and why does a roofing company need it?',
+    answer: 'Call tracking assigns unique phone numbers to different marketing channels (Google Ads, Facebook, yard signs, etc.) so you can see exactly which sources drive inbound calls — and therefore which are worth their spend.',
+  },
+  {
+    question: 'Does call tracking affect my Google Business Profile SEO?',
+    answer: 'Using a tracking number on your GBP (Google Business Profile) listing can create a NAP (Name, Address, Phone) inconsistency with your website. Most call tracking tools offer a dynamic number insertion approach that preserves your real number for organic listings while tracking paid traffic.',
+  },
+  {
+    question: 'Can call tracking tell me which keywords drive roofing calls?',
+    answer: 'Yes — when combined with Google Ads, call tracking tools can attribute individual phone calls back to specific search keywords. This is especially valuable for understanding your cost-per-lead from paid search.',
+  },
+];
+
+const relatedGuides = [
+  { title: 'AI Receptionists', href: `${base}/ai-receptionists/`, description: 'Answer every call with AI.' },
+  { title: 'Outbound Sales Automation', href: `${base}/outbound/`, description: 'Power dialers and outbound sequences.' },
+  { title: 'CRM for Roofing Companies', href: `${base}/crm/`, description: 'Track leads after the call comes in.' },
+];
+---
+
+<CategoryLayout
+  title="Call Tracking for Roofing Companies (2025)"
+  description="Compare the best call tracking tools for roofing companies. Know which ads, channels, and keywords drive your inbound calls and optimize your marketing spend."
+  category="Call Tracking"
+  intro="Call tracking tells you which marketing channels — Google Ads, Facebook, yard signs, truck wraps — are actually driving inbound calls to your roofing business. Without it, you're spending marketing dollars blind."
+>
+  <AffiliateDisclosure />
+
+  <h2>Quick Answer</h2>
+  <p><strong>CallRail</strong> is the most widely used call tracking tool among roofing companies and home services businesses generally. It integrates with Google Ads, Google Analytics, and most CRMs. If you run any paid advertising for your roofing company and don't have call tracking, CallRail is the most common starting point.</p>
+
+  <h2>Comparison Table</h2>
+  <ComparisonTable tools={tableTools} caption="Call tracking tools for roofing companies — 2025" />
+
+  <h2>What Call Tracking Tells You</h2>
+  <ul>
+    <li>Which campaign or ad group drove a specific call</li>
+    <li>Which keyword triggered a Google Ads call</li>
+    <li>How long the call lasted (a proxy for call quality)</li>
+    <li>Call recordings for training and quality review</li>
+    <li>Which marketing channels have the lowest cost-per-call</li>
+  </ul>
+
+  <FAQSection items={faqs} />
+  <RelatedGuides guides={relatedGuides} />
+</CategoryLayout>

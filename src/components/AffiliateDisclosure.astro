@@ -1,0 +1,34 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<aside class:list={['disclosure', compact && 'disclosure--compact']} role="note" aria-label="Affiliate disclosure">
+  {compact
+    ? <p>⚠️ <strong>Affiliate Disclosure:</strong> This page contains affiliate links. We may earn a commission at no extra cost to you.</p>
+    : <p>⚠️ <strong>Affiliate Disclosure:</strong> This page contains affiliate links. If you purchase a product through our links, we may earn a commission at no additional cost to you. Our editorial content is not influenced by affiliate relationships — we only feature tools we believe provide genuine value to roofing businesses. We have not necessarily tested every tool listed. Descriptions are based on publicly available vendor information.</p>
+  }
+</aside>
+
+<style>
+  .disclosure {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-left: 4px solid #f59e0b;
+    border-radius: var(--radius);
+    padding: 0.875rem 1rem;
+    margin: 1.25rem 0;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: #78350f;
+  }
+
+  .disclosure p { margin: 0; }
+
+  .disclosure--compact {
+    padding: 0.5rem 0.75rem;
+  }
+</style>

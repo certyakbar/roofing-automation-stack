@@ -1,0 +1,105 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const faqs = [
+  {
+    question: 'How long does it take to set up lead follow-up automation?',
+    answer: 'With a platform like GoHighLevel or your CRM\'s automation builder, a basic 3-step follow-up sequence can be set up in under an hour. A fully built-out multi-stage sequence with custom scripts typically takes 4–8 hours across setup and testing.',
+  },
+  {
+    question: 'Do I need to write my own follow-up scripts?',
+    answer: 'Not necessarily — most platforms include starter templates. However, roofing-specific scripts that mention your local market, services, and offer tend to outperform generic templates. Customize at minimum the first-contact message.',
+  },
+  {
+    question: 'Should I follow up by text or email first?',
+    answer: 'Text first for speed. Text open rates and response rates are significantly higher than email for initial contact. Use email for longer-form follow-up content and for leads that have gone quiet.',
+  },
+];
+
+const relatedGuides = [
+  { title: 'Lead Follow-Up Automation Tools', href: `${base}/lead-follow-up/`, description: 'Compare platforms for automating lead follow-up.' },
+  { title: 'Missed Call Text Back', href: `${base}/missed-calls/`, description: 'Automate follow-up for missed inbound calls.' },
+  { title: 'CRM for Roofing', href: `${base}/crm/`, description: 'Pick the right CRM to manage your pipeline.' },
+];
+---
+
+<ArticleLayout
+  title="Roofing Lead Follow-Up Automation Checklist (Free Download)"
+  description="A step-by-step checklist for roofing companies to implement lead follow-up automation. Covers trigger setup, message scripts, sequence timing, and testing."
+  faqs={faqs}
+  relatedGuides={relatedGuides}
+  publishDate="2025-01-15"
+>
+
+  <p><strong>This checklist is free to use.</strong> Copy it into your own doc, print it, or use it as a reference when setting up your automation in any CRM or marketing platform.</p>
+
+  <h2>Phase 1: Define Your Lead Sources</h2>
+  <ul>
+    <li>List every channel that generates leads (Google Ads, Facebook, website form, referral, missed call, door-knock)</li>
+    <li>For each source, identify: where the lead lands (CRM, spreadsheet, email inbox)</li>
+    <li>Identify gaps — which sources currently have zero automation</li>
+    <li>Prioritize your highest-volume source first</li>
+  </ul>
+
+  <h2>Phase 2: Set Up Your Triggers</h2>
+  <ul>
+    <li>Website form submission → trigger immediate sequence</li>
+    <li>Missed call → trigger missed call text back (within 60 seconds)</li>
+    <li>Facebook Lead Ad → trigger immediate sequence via CRM integration</li>
+    <li>Manual CRM entry → trigger onboarding sequence for canvassed leads</li>
+    <li>Test each trigger with a real submission or a test lead</li>
+  </ul>
+
+  <h2>Phase 3: Write Your Follow-Up Scripts</h2>
+  <p>For each stage below, write the message before you build the automation:</p>
+  <ol>
+    <li><strong>Instant text (0–60 seconds):</strong> Acknowledge their inquiry, introduce your company, invite a response. Keep it under 160 characters.</li>
+    <li><strong>Instant email (0–5 minutes):</strong> Slightly longer — introduce your company, mention your service area, include a clear next step (book a free estimate).</li>
+    <li><strong>1-hour follow-up text:</strong> Check in, offer to answer questions. Do not be pushy.</li>
+    <li><strong>4-hour follow-up (call attempt):</strong> Prompt your sales rep to call. Some platforms automate this as a task.</li>
+    <li><strong>Day 2 text:</strong> Brief check-in. Reference the specific service they inquired about.</li>
+    <li><strong>Day 4 text/email:</strong> Provide value — link to a relevant resource or a testimonial.</li>
+    <li><strong>Day 7 email:</strong> Last immediate follow-up before long-tail nurture.</li>
+    <li><strong>Monthly nurture:</strong> Stay top-of-mind with seasonal tips, limited-time offers, or inspection reminders.</li>
+  </ol>
+
+  <h2>Phase 4: Build the Automation</h2>
+  <ul>
+    <li>Create the sequence/workflow in your CRM or automation platform</li>
+    <li>Set delays between steps (exactly as planned above)</li>
+    <li>Add a stop condition: if the lead replies or books, stop the sequence</li>
+    <li>Add a stop condition: if the lead unsubscribes or asks to stop, comply immediately</li>
+    <li>Assign a pipeline stage at each trigger point</li>
+  </ul>
+
+  <h2>Phase 5: Test Before Going Live</h2>
+  <ul>
+    <li>Submit a test lead using your own phone number</li>
+    <li>Confirm the instant text arrives within 60 seconds</li>
+    <li>Confirm the email arrives within 5 minutes</li>
+    <li>Check that the stop condition works (reply to the text — sequence should pause)</li>
+    <li>Review CRM for correct lead creation and pipeline stage</li>
+    <li>Walk through the full sequence timing on paper before enabling</li>
+  </ul>
+
+  <h2>Phase 6: Monitor &amp; Optimize</h2>
+  <ul>
+    <li>Track contact rate: what % of leads respond to your first message</li>
+    <li>Track booking rate: what % of leads that respond book an estimate</li>
+    <li>Review sequences monthly — test message variants on underperforming steps</li>
+    <li>Check unsubscribe and complaint rates — high rates signal aggressive or irrelevant messaging</li>
+    <li>Audit your lead source list quarterly — add automation to any new channels</li>
+  </ul>
+
+  <h2>Common Mistakes to Avoid</h2>
+  <ul>
+    <li>Using a generic "Thanks for your inquiry" text with no company name or call to action</li>
+    <li>No stop condition — bombarding leads who already booked</li>
+    <li>Following up by email only — text is faster for initial contact</li>
+    <li>Sequences that run for 30+ days without delivering any value</li>
+    <li>Not testing the automation before going live</li>
+  </ul>
+
+</ArticleLayout>

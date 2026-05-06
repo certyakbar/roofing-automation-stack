@@ -1,0 +1,73 @@
+---
+interface Props {
+  headline?: string;
+  subtext?: string;
+  buttonLabel?: string;
+  buttonHref?: string;
+}
+
+const {
+  headline = 'Free Download: Roofing Lead Follow-Up Automation Checklist',
+  subtext = 'A practical step-by-step checklist for roofing owners and sales managers to implement automated follow-up — without hiring extra staff.',
+  buttonLabel = 'Get the Free Checklist',
+  buttonHref = import.meta.env.BASE_URL + '/templates/lead-follow-up-checklist/',
+} = Astro.props;
+---
+
+<aside class="cta-box" aria-label="Free resource offer">
+  <div class="cta-inner">
+    <div class="cta-icon" aria-hidden="true">📋</div>
+    <div class="cta-content">
+      <h3 class="cta-headline">{headline}</h3>
+      <p class="cta-subtext">{subtext}</p>
+      <a href={buttonHref} class="cta-button">{buttonLabel} →</a>
+    </div>
+  </div>
+</aside>
+
+<style>
+  .cta-box {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #1a4d7c 100%);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    margin: 2.5rem 0;
+    color: #fff;
+  }
+
+  .cta-inner {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .cta-icon { font-size: 2rem; flex-shrink: 0; }
+
+  .cta-headline {
+    color: #fff;
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-subtext {
+    font-size: 0.9rem;
+    color: #cbd5e0;
+    margin-bottom: 1rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: var(--color-accent);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.6rem 1.25rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.15s;
+  }
+
+  .cta-button:hover {
+    background: var(--color-accent-hover);
+    color: #fff;
+  }
+</style>

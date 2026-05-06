@@ -1,0 +1,106 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const comparisons = [
+  {
+    href: `${base}/comparisons/jobnimbus-vs-acculynx/`,
+    title: 'JobNimbus vs AccuLynx',
+    description: 'Two of the most popular roofing-specific CRMs compared side by side.',
+    tag: 'CRM',
+  },
+];
+---
+
+<CategoryLayout
+  title="Roofing Software Comparisons (2025)"
+  description="Side-by-side comparisons of roofing CRM, automation, and sales tools. Helping roofing companies choose between competing platforms."
+  category="Comparisons"
+  intro="Head-to-head comparisons of the top roofing automation tools, written for roofing owners and sales managers who need to pick between two similar options."
+>
+  <ul class="comparison-list">
+    {comparisons.map(c => (
+      <li class="comparison-item">
+        <div>
+          {c.tag && <span class="comp-tag">{c.tag}</span>}
+          <a href={c.href} class="comp-title">{c.title}</a>
+          <p class="comp-description">{c.description}</p>
+        </div>
+        <a href={c.href} class="comp-link">Read Comparison →</a>
+      </li>
+    ))}
+  </ul>
+
+  <p class="coming-soon-note">More comparisons being added regularly. Check back or <a href={`${base}/templates/`}>grab the free checklist</a> while you wait.</p>
+</CategoryLayout>
+
+<style>
+  .comparison-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .comparison-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: #fff;
+    flex-wrap: wrap;
+  }
+
+  .comp-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: #dbeafe;
+    color: #1e40af;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    margin-bottom: 0.4rem;
+  }
+
+  .comp-title {
+    display: block;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .comp-title:hover { color: var(--color-accent); }
+
+  .comp-description {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .comp-link {
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+    white-space: nowrap;
+    align-self: center;
+  }
+
+  .comp-link:hover { text-decoration: underline; }
+
+  .coming-soon-note {
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+</style>

@@ -1,0 +1,63 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import RelatedGuides from '../../components/RelatedGuides.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const tableTools = [
+  { name: 'Smith.ai', bestFor: 'Live + AI answering hybrid', pricing: '~$292+/mo', roofingFit: 'Good' as const, standout: 'Blends AI + live agents for complex calls' },
+  { name: 'Goodcall', bestFor: 'Small business AI answering', pricing: 'Contact vendor', roofingFit: 'Good' as const, standout: '24/7 AI phone answering with appointment booking' },
+  { name: 'Numa', bestFor: 'Missed call + text conversations', pricing: 'Contact vendor', roofingFit: 'Good' as const, standout: 'Converts missed calls to text conversations via AI' },
+  { name: 'AnswerConnect', bestFor: '24/7 live answering', pricing: 'Contact vendor', roofingFit: 'Moderate' as const, standout: 'Human answering with basic call scripts' },
+];
+
+const faqs = [
+  {
+    question: 'What does an AI receptionist do for a roofing company?',
+    answer: 'An AI receptionist answers inbound calls 24/7, greets callers, collects their name, address, and reason for calling, qualifies them as a lead, and can book an estimate appointment directly into your calendar — all without a human picking up.',
+  },
+  {
+    question: 'Will callers know they are talking to an AI?',
+    answer: 'This varies by product. Some AI receptionists are transparent about being AI. Others are designed to sound natural and may be indistinguishable from a human on basic qualifying calls. Review each vendor\'s approach and any applicable disclosure requirements in your area.',
+  },
+  {
+    question: 'Can an AI receptionist handle storm-surge call volume?',
+    answer: 'Yes — this is one of the strongest use cases. After a major hail or wind event, roofing companies get flooded with calls. An AI receptionist can handle unlimited simultaneous calls, qualifying every lead immediately rather than sending callers to voicemail.',
+  },
+];
+
+const relatedGuides = [
+  { title: 'Missed Call Automation', href: `${base}/missed-calls/`, description: 'Text back missed calls automatically.' },
+  { title: 'Call Tracking', href: `${base}/call-tracking/`, description: 'Track which channels drive your inbound calls.' },
+  { title: 'Lead Follow-Up Automation', href: `${base}/lead-follow-up/`, description: 'Automate your follow-up sequences.' },
+];
+---
+
+<CategoryLayout
+  title="AI Receptionists for Roofing Companies (2025)"
+  description="Compare AI receptionist tools for roofing businesses. Answer every call 24/7, qualify leads, and book estimates — even during storm surge."
+  category="AI Receptionists"
+  intro="AI receptionists answer your inbound calls around the clock, qualify leads, and book estimate appointments — so no call goes to voicemail and no lead slips through because your team was busy on a job."
+>
+  <AffiliateDisclosure />
+
+  <h2>Quick Answer</h2>
+  <p>For roofing companies that want a pure AI phone answering solution, <strong>Goodcall</strong> and <strong>Numa</strong> are worth evaluating. If you want a hybrid of AI + live agents for calls that need a human touch, <strong>Smith.ai</strong> is a well-regarded option. For most small roofing operations, a dedicated AI receptionist is most valuable during off-hours and storm surge periods.</p>
+
+  <h2>Comparison Table</h2>
+  <ComparisonTable tools={tableTools} caption="AI receptionist tools for roofing companies — 2025" />
+
+  <h2>When an AI Receptionist Makes Sense for Roofing</h2>
+  <ul>
+    <li>You're missing calls after hours or while your team is on roofs</li>
+    <li>Storm season creates call surges your office can't handle</li>
+    <li>You want every lead qualified before it hits your CRM</li>
+    <li>You're paying for a human receptionist whose time is consumed by repetitive screening calls</li>
+  </ul>
+
+  <FAQSection items={faqs} />
+  <RelatedGuides guides={relatedGuides} />
+</CategoryLayout>

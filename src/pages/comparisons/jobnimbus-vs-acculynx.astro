@@ -1,0 +1,74 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const tableTools = [
+  { name: 'JobNimbus', bestFor: 'Storm restoration & residential', pricing: '~$25/user/mo (verify)', roofingFit: 'Excellent' as const, standout: 'Photo docs, storm workflows, proposal builder' },
+  { name: 'AccuLynx', bestFor: 'Full roofing ops management', pricing: 'Contact vendor', roofingFit: 'Excellent' as const, standout: 'Material ordering, production scheduling' },
+];
+
+const faqs = [
+  {
+    question: 'Is JobNimbus or AccuLynx better for storm restoration?',
+    answer: 'Both are widely used in storm restoration. JobNimbus is known for its usability and strong adoption among sales-focused teams. AccuLynx offers more depth in production and material management, which matters for larger operations managing multiple crews.',
+  },
+  {
+    question: 'Which is easier to learn — JobNimbus or AccuLynx?',
+    answer: 'JobNimbus is generally regarded as having a lower learning curve, particularly for sales reps. AccuLynx has more features but can take longer to configure and train a team on.',
+  },
+  {
+    question: 'Can I migrate from JobNimbus to AccuLynx (or vice versa)?',
+    answer: 'Yes — both platforms support data exports. Migration involves exporting contacts, jobs, and documents from one platform and importing into the other. Plan for some manual cleanup and a training period.',
+  },
+];
+
+const relatedGuides = [
+  { title: 'CRM for Roofing Companies', href: `${base}/crm/`, description: 'Full category guide to roofing CRMs.' },
+  { title: 'Lead Follow-Up Automation', href: `${base}/lead-follow-up/`, description: 'Automate your follow-up sequences.' },
+  { title: 'Comparisons Index', href: `${base}/comparisons/`, description: 'More roofing tool comparisons.' },
+];
+---
+
+<ArticleLayout
+  title="JobNimbus vs AccuLynx (2025): Which Roofing CRM Should You Choose?"
+  description="A direct comparison of JobNimbus and AccuLynx for roofing companies. Covers features, pricing, roofing fit, and which type of company each is best for."
+  faqs={faqs}
+  relatedGuides={relatedGuides}
+  publishDate="2025-01-15"
+>
+
+  <h2>Quick Answer</h2>
+  <p>Both JobNimbus and AccuLynx are purpose-built roofing CRMs — you can't go wrong with either compared to using a generic tool. <strong>JobNimbus</strong> tends to suit sales-focused residential and storm restoration teams who want usability and fast onboarding. <strong>AccuLynx</strong> tends to suit larger operations that need deeper production management, material ordering, and subcontractor tracking in addition to CRM functionality.</p>
+
+  <h2>Side-by-Side Comparison</h2>
+  <ComparisonTable tools={tableTools} caption="JobNimbus vs AccuLynx — feature and fit comparison" />
+
+  <h2>JobNimbus Overview</h2>
+  <p>JobNimbus is a CRM and project management tool built specifically for roofing and exterior contractors. It combines lead and contact management, job tracking, photo documentation, proposal building, and basic automation. It's widely used in the residential and storm restoration segments.</p>
+  <p><strong>Strengths:</strong> Intuitive interface, strong mobile app, good adoption by sales reps, solid storm restoration workflows.</p>
+  <p><strong>Limitations:</strong> Production and materials management is less deep than AccuLynx. Automation capabilities are more basic than general-purpose platforms like GoHighLevel.</p>
+
+  <h2>AccuLynx Overview</h2>
+  <p>AccuLynx is an end-to-end roofing business management platform. Beyond CRM, it covers production scheduling, crew management, material ordering integrations (with suppliers like ABC Supply), and subcontractor management.</p>
+  <p><strong>Strengths:</strong> Deep production management, material ordering workflows, strong for companies managing multiple crews and job types.</p>
+  <p><strong>Limitations:</strong> Higher complexity means longer onboarding. Pricing is not publicly listed — requires a sales call.</p>
+
+  <h2>Which Should You Choose?</h2>
+  <p>Choose <strong>JobNimbus</strong> if:</p>
+  <ul>
+    <li>You primarily need CRM + proposals + photo docs</li>
+    <li>Your team is sales-focused and needs fast adoption</li>
+    <li>You're a small-to-mid residential or storm restoration company</li>
+  </ul>
+  <p>Choose <strong>AccuLynx</strong> if:</p>
+  <ul>
+    <li>You need to manage production, crews, and materials in addition to leads</li>
+    <li>You're scaling toward a larger operation with multiple job types</li>
+    <li>You want deeper integration with material suppliers</li>
+  </ul>
+
+  <p><em>Pricing note: Verify current pricing directly with both vendors before making a decision. Roofing software pricing changes frequently and often depends on team size and contract length.</em></p>
+
+</ArticleLayout>
