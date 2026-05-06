@@ -1,0 +1,424 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import CTABox from '../../components/CTABox.astro';
+import RelatedGuides from '../../components/RelatedGuides.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const compareTools = [
+  {
+    name: 'GoHighLevel',
+    bestFor: 'Automation, speed-to-lead, SMS follow-up',
+    pricing: 'From ~$97/mo — verify with vendor',
+    roofingFit: 'Excellent' as const,
+    standout: 'Deepest automation stack: SMS, missed-call, reviews',
+    affiliateHref: '#',
+  },
+  {
+    name: 'JobNimbus',
+    bestFor: 'Roofing-native CRM + field operations',
+    pricing: 'From ~$25/user/mo — verify with vendor',
+    roofingFit: 'Excellent' as const,
+    standout: 'Built-in roofing workflows, photo docs, proposals',
+    affiliateHref: '#',
+  },
+  {
+    name: 'AccuLynx',
+    bestFor: 'Full roofing business management',
+    pricing: 'Contact vendor for pricing',
+    roofingFit: 'Excellent' as const,
+    standout: 'Production scheduling, material ordering, job costing',
+    affiliateHref: '#',
+  },
+];
+
+const faqs = [
+  {
+    question: 'What is GoHighLevel and why do roofing companies use it?',
+    answer: 'GoHighLevel (also called HighLevel or GHL) is an all-in-one CRM and marketing automation platform. Roofing companies use it primarily because of its automation depth — missed-call text-back, multi-step SMS follow-up sequences, estimate reminders, pipeline stage triggers, and review request automation can all be configured in one platform without needing separate tools for each function.',
+  },
+  {
+    question: 'How much does GoHighLevel cost for a roofing company?',
+    answer: 'GoHighLevel offers several plan tiers. Pricing should be verified directly with the vendor at gohighlevel.com, as plans and pricing change. Many roofing companies access GoHighLevel through a marketing agency that white-labels the platform, which may bundle setup and ongoing management into a monthly retainer rather than a direct software subscription.',
+  },
+  {
+    question: 'Do I need a marketing agency to use GoHighLevel for my roofing business?',
+    answer: 'No, but it helps — especially at setup. GoHighLevel is a powerful platform with significant configuration involved. Roofing companies that sign up directly without prior experience often spend weeks building what a roofing-specific agency can deploy in days using a pre-built "snapshot" (a pre-configured account template). If you prefer a self-managed setup, GoHighLevel has extensive documentation and a large user community.',
+  },
+  {
+    question: 'How does GoHighLevel compare to JobNimbus or AccuLynx for roofing?',
+    answer: 'GoHighLevel is stronger on automation depth: SMS sequences, missed-call text-back, estimate reminders, and review requests are all native. JobNimbus and AccuLynx are stronger on roofing operations: photo documentation, production scheduling, material ordering, and insurance claim workflows are built in. Many roofing companies run both — GoHighLevel for sales pipeline and follow-up automation, and a roofing-specific platform for production management.',
+  },
+  {
+    question: 'What is a GoHighLevel snapshot for roofing?',
+    answer: 'A snapshot is a pre-built GoHighLevel account configuration that includes ready-made pipelines, automation workflows, SMS templates, and funnel pages designed for a specific industry or use case. Roofing snapshots built by agencies or GoHighLevel consultants can dramatically reduce setup time compared to building from scratch. They typically include a standard roofing sales pipeline, missed-call text-back, lead follow-up sequences, and estimate reminder automations.',
+  },
+  {
+    question: 'Can GoHighLevel handle missed-call text-back for a roofing company?',
+    answer: 'Yes. Missed-call text-back is a native GoHighLevel feature. When an inbound call goes unanswered, GHL can automatically send a text message to the caller within seconds. The message is customizable and any response from the caller flows into the GHL conversations inbox where your team can continue the conversation. This is one of the most-used features among roofing companies on the platform.',
+  },
+];
+
+const relatedGuides = [
+  {
+    title: 'Best CRM for Roofing Companies',
+    href: `${base}/best-crm-for-roofing-companies/`,
+    description: 'Full comparison of CRM options for roofing by use case, automation depth, and roofing fit.',
+  },
+  {
+    title: 'CRM for Roofing Companies',
+    href: `${base}/crm/`,
+    description: 'Overview of all CRM platforms used by residential and commercial roofers.',
+  },
+  {
+    title: 'Lead Follow-Up Automation',
+    href: `${base}/lead-follow-up/`,
+    description: 'Automate your follow-up sequences so no roofing lead goes cold.',
+  },
+  {
+    title: 'Missed Call Automation',
+    href: `${base}/missed-calls/`,
+    description: 'Instantly text back every missed inbound call from a roofing prospect.',
+  },
+  {
+    title: 'Free Lead Follow-Up Checklist',
+    href: `${base}/templates/lead-follow-up-checklist/`,
+    description: 'Step-by-step checklist for implementing roofing lead follow-up automation.',
+  },
+];
+---
+
+<ArticleLayout
+  title="GoHighLevel for Roofers"
+  description="Learn how roofing companies can use GoHighLevel for CRM, missed-call text-back, SMS follow-up, estimate reminders, pipeline tracking, review requests, and lead automation."
+  showCTA={false}
+  faqs={[]}
+  relatedGuides={[]}
+>
+
+  <h2>Quick Answer</h2>
+  <p>
+    GoHighLevel is one of the most capable automation platforms available to roofing companies.
+    It handles <strong>missed-call text-back</strong>, <strong>multi-step SMS follow-up</strong>,
+    <strong>estimate reminders</strong>, <strong>review request automation</strong>, and full
+    <strong>sales pipeline tracking</strong> — all in one platform. It is not roofing-specific
+    software: it lacks production management features like material ordering or crew scheduling.
+    For roofers whose primary bottleneck is lead response speed and follow-up consistency, it is
+    one of the strongest tools available. For companies that also need operations management,
+    it is often run alongside a roofing-specific platform like JobNimbus or AccuLynx.
+  </p>
+
+  <h2>What GoHighLevel Can Do for Roofing Companies</h2>
+  <p>
+    GoHighLevel is an all-in-one CRM and marketing automation platform used by roofing companies
+    and the agencies that serve them. Its core strength for roofers is the depth and flexibility
+    of its automation engine: almost any business event — a missed call, a new lead, a sent
+    estimate, a no-show appointment, a closed job — can trigger an automated sequence of texts,
+    emails, voicemail drops, or internal notifications.
+  </p>
+  <p>Key capabilities relevant to roofing companies:</p>
+  <ul>
+    <li>CRM with visual, fully customizable sales pipeline</li>
+    <li>Two-way SMS conversations and group inbox for the whole team</li>
+    <li>Automated SMS and email sequences with time delays and conditions</li>
+    <li>Missed-call text-back (native feature, no integration required)</li>
+    <li>Voicemail drops for outbound follow-up</li>
+    <li>Appointment scheduling with automated reminders and no-show follow-up</li>
+    <li>Review request automation (Google and other platforms)</li>
+    <li>Landing pages, forms, and lead capture funnels</li>
+    <li>Reporting on pipeline activity, lead sources, and revenue</li>
+    <li>White-label access for roofing marketing agencies</li>
+  </ul>
+
+  <h2>GoHighLevel vs. Roofing-Specific CRM Options</h2>
+  <ComparisonTable
+    tools={compareTools}
+    caption="GoHighLevel compared to roofing-specific CRM platforms"
+  />
+
+  <h2>Best Roofing Use Cases for GoHighLevel</h2>
+
+  <h3>Missed-Call Text-Back</h3>
+  <p>
+    When a roofing prospect calls and nobody answers, GoHighLevel can automatically send an SMS
+    within seconds of the missed call. The message is fully customizable — something like
+    <em>"Hey, we missed your call at [Company Name]. What roofing project can we help with?"</em>
+    — and any response from the caller lands in your GHL conversations inbox where your team
+    picks up the thread.
+  </p>
+  <p>
+    In storm restoration markets especially, where a homeowner will call 3–5 contractors and go
+    with whoever responds first, this automation alone can recover a meaningful percentage of
+    leads that would otherwise be lost.
+  </p>
+  <p>More on this: <a href={`${base}/missed-calls/`}>Missed Call Automation for Roofing Companies</a></p>
+
+  <h3>New Lead SMS Follow-Up</h3>
+  <p>
+    Any new contact entering your GoHighLevel CRM — from a web form, a Facebook lead ad, a
+    manual entry by your office, or an inbound call log — can trigger an automated follow-up
+    sequence. A standard roofing sequence might include an immediate SMS, a follow-up text at
+    one hour if no reply, a voicemail drop at four hours, and continued touches on days 2, 4,
+    and 7.
+  </p>
+  <p>
+    GoHighLevel's conditional logic allows you to stop the sequence the moment the lead responds
+    or is moved to a new pipeline stage — so contacts who reply are not bombarded with continued
+    automated messages.
+  </p>
+  <p>More on this: <a href={`${base}/lead-follow-up/`}>Lead Follow-Up Automation for Roofing Companies</a></p>
+
+  <h3>Estimate Reminder Automation</h3>
+  <p>
+    When a deal is moved into an "Estimate Sent" pipeline stage in GoHighLevel, an automation can
+    trigger a follow-up sequence automatically. A text at 24 hours after sending —
+    <em>"Just checking if you had a chance to review the estimate — happy to answer any
+    questions"</em> — and a second touch at 72 hours if there is still no response can
+    meaningfully improve estimate acceptance rates without requiring manual follow-up from your
+    sales team.
+  </p>
+
+  <h3>No-Show Follow-Up</h3>
+  <p>
+    GoHighLevel's appointment system allows you to set an appointment status to "no-show" when a
+    prospect misses an inspection or estimate appointment. That status change can trigger an
+    immediate automated sequence — a text attempting to reschedule, followed by a call reminder
+    for your team. No-shows are usually scheduling conflicts, not lost leads. Recovering them
+    automatically costs nothing.
+  </p>
+
+  <h3>Old Lead Reactivation</h3>
+  <p>
+    GoHighLevel allows you to filter contacts by pipeline stage and last activity date, then
+    enroll a segment into a reactivation campaign. Leads that were marked "Closed Lost" or went
+    quiet 6–18 months ago are worth re-engaging — particularly in storm restoration, where a new
+    hail event in the area can re-open jobs that previously did not close. A simple
+    "Are you still looking for help with your roof?" message sent to old cold leads costs almost
+    nothing and occasionally surfaces jobs your competitors have forgotten.
+  </p>
+
+  <h3>Review Request Automation</h3>
+  <p>
+    When a deal is moved to "Closed Won" or a job is marked complete in GoHighLevel, an automated
+    SMS can fire 24–48 hours later requesting a Google review. Timing matters: homeowners are most
+    likely to leave a review shortly after project completion while the experience is fresh.
+    Automated review requests running consistently over months compound into one of the most
+    valuable organic lead generation assets a local roofing company can build.
+  </p>
+
+  <h3>Sales Pipeline Tracking</h3>
+  <p>
+    GoHighLevel's CRM uses a visual kanban-style pipeline where deals move through stages as the
+    job progresses. Each stage can have automation triggers, required fields, and internal
+    notifications — so moving a deal to "Inspection Scheduled" can simultaneously send a
+    confirmation text to the homeowner and a notification to the assigned rep. Owners and managers
+    get full visibility into deal flow without manually updating a spreadsheet.
+  </p>
+
+  <h2>Who GoHighLevel Is Best For</h2>
+  <ul>
+    <li>
+      <strong>Roofing companies whose primary bottleneck is lead response and follow-up.</strong>
+      If your team is losing leads to slow response times, missed calls, or inconsistent
+      follow-up, GoHighLevel's automation stack directly addresses those gaps.
+    </li>
+    <li>
+      <strong>Storm restoration companies competing on speed-to-lead.</strong> In markets where
+      multiple contractors are canvassing the same neighborhoods after a storm, the first company
+      to make contact wins a disproportionate share of jobs. Automation removes the human delay.
+    </li>
+    <li>
+      <strong>Companies already working with a roofing marketing agency that uses GHL.</strong>
+      Many roofing marketing agencies build on GoHighLevel and can onboard a client into a
+      pre-configured roofing snapshot within days. If your agency is already on GHL, adding
+      your CRM and automations to the same platform makes sense.
+    </li>
+    <li>
+      <strong>Roofing companies running their own marketing who want one platform.</strong>
+      GoHighLevel combines CRM, follow-up automation, landing pages, form capture, and
+      reporting. For an owner-operator who wants to avoid managing five separate tools, that
+      consolidation has real value.
+    </li>
+  </ul>
+
+  <h2>Who GoHighLevel Is Not Best For</h2>
+  <ul>
+    <li>
+      <strong>Companies that need production management out of the box.</strong> GoHighLevel does
+      not include material ordering integrations, production scheduling, crew management, or
+      insurance claim tracking. Roofing companies that run complex operations typically need a
+      dedicated roofing platform like <a href={`${base}/crm/`}>JobNimbus or AccuLynx</a> for
+      those functions.
+    </li>
+    <li>
+      <strong>Teams with no one to configure and maintain the platform.</strong> GoHighLevel's
+      power comes from its configurability — but configuration takes time and ongoing maintenance.
+      A company with no internal person or agency partner managing the platform will see limited
+      results from an out-of-the-box account.
+    </li>
+    <li>
+      <strong>Companies looking for roofing-specific workflows without setup.</strong> JobNimbus
+      and AccuLynx come with roofing pipelines, photo documentation, and proposal tools built in.
+      GoHighLevel requires those to be configured — or sourced through a roofing snapshot.
+    </li>
+    <li>
+      <strong>Very early-stage operations that need a free starting point.</strong> GoHighLevel
+      requires a paid subscription. HubSpot's free CRM is a more practical starting point for
+      a company not yet generating enough volume to justify the cost.
+    </li>
+  </ul>
+
+  <h2>Suggested Roofing Sales Pipeline Inside GoHighLevel</h2>
+  <p>
+    GoHighLevel pipelines are fully customizable. Here is a practical stage structure for
+    residential and storm restoration roofing that maps well to GHL's automation triggers:
+  </p>
+  <ol>
+    <li>
+      <strong>New Lead</strong> — Trigger: immediate SMS follow-up sequence fires. Internal
+      notification sent to assigned rep.
+    </li>
+    <li>
+      <strong>Contacted</strong> — First contact made. Sequence pauses; manual follow-up phase
+      begins.
+    </li>
+    <li>
+      <strong>Inspection Scheduled</strong> — Trigger: homeowner receives confirmation text and
+      24-hour reminder. Rep receives internal reminder notification.
+    </li>
+    <li>
+      <strong>Inspection Complete</strong> — On-site visit done. Estimate or scope of work in
+      progress.
+    </li>
+    <li>
+      <strong>Estimate Sent</strong> — Trigger: 24-hour and 72-hour estimate reminder sequence
+      fires automatically.
+    </li>
+    <li>
+      <strong>Follow-Up Active</strong> — Prospect is considering. Nurture sequence continues on
+      a longer cadence.
+    </li>
+    <li>
+      <strong>Insurance Pending</strong> (storm restoration) — Claim filed or adjuster scheduled.
+      Optional: automated check-in texts to keep prospect engaged during the wait.
+    </li>
+    <li>
+      <strong>Closed Won</strong> — Trigger: internal notification fires, review request sequence
+      scheduled for 24–48 hours post-job completion.
+    </li>
+    <li>
+      <strong>Closed Lost</strong> — Trigger: contact tagged for reactivation campaign. Sequence
+      scheduled for 6–12 months out.
+    </li>
+  </ol>
+
+  <h2>Suggested Automations to Configure First</h2>
+  <p>
+    If you are setting up GoHighLevel for a roofing company, configure these automations before
+    anything else — they have the highest direct impact on lead recovery and close rates:
+  </p>
+  <ol>
+    <li>
+      <strong>Missed-call text-back</strong> — Enable immediately. Any unanswered inbound call
+      sends an automatic SMS within 60 seconds. This is the single highest-ROI automation on the
+      platform for most roofing companies.
+    </li>
+    <li>
+      <strong>New lead SMS sequence</strong> — Fires when any new contact is created. 5–7 touch
+      sequence across the first week. Stops automatically when the lead responds or moves to
+      "Contacted."
+    </li>
+    <li>
+      <strong>Inspection reminder</strong> — Triggers when a deal moves to "Inspection Scheduled."
+      Sends homeowner a confirmation and a reminder 24 hours and 2 hours before the appointment.
+    </li>
+    <li>
+      <strong>Estimate follow-up</strong> — Triggers on move to "Estimate Sent." 24-hour and
+      72-hour follow-up texts if no response.
+    </li>
+    <li>
+      <strong>No-show reschedule</strong> — Triggers when appointment status is set to no-show.
+      Sends immediate reschedule text and creates a follow-up task for the rep.
+    </li>
+    <li>
+      <strong>Review request</strong> — Triggers on move to "Closed Won" or a time delay after
+      job completion. Sends a direct link to your Google review page via SMS.
+    </li>
+    <li>
+      <strong>Old lead reactivation</strong> — Runs as a periodic campaign targeting Closed Lost
+      contacts last touched more than 6 months ago. A simple check-in SMS costs almost nothing
+      and occasionally surfaces jobs you had written off.
+    </li>
+  </ol>
+
+  <h2>Mistakes to Avoid with GoHighLevel for Roofing</h2>
+  <ul>
+    <li>
+      <strong>Starting from a blank account without a roofing snapshot.</strong> Building every
+      pipeline, automation, and template from scratch takes weeks. Find a roofing-specific
+      snapshot from an agency or GHL marketplace to start with a pre-configured foundation —
+      then customize from there.
+    </li>
+    <li>
+      <strong>Sending too many automated messages too quickly.</strong> An aggressive sequence
+      that sends five texts in 48 hours will generate complaints and opt-outs. Spread touches
+      out realistically. Most roofing leads need 3–5 attempts over 5–7 days, not 5 attempts in
+      two days.
+    </li>
+    <li>
+      <strong>Not setting business-hours restrictions on automations.</strong> A missed-call
+      text-back at 11pm is fine. An automated sequence that sends a new SMS at 7am Saturday
+      because someone filled out a form Friday night is not. Configure quiet hours in all
+      sequences.
+    </li>
+    <li>
+      <strong>Treating the conversations inbox as set-it-and-forget-it.</strong> GoHighLevel
+      handles the first automated touch. When a lead replies, a human needs to respond promptly.
+      Assign inbox ownership to a specific person or team and set expectations for response time.
+    </li>
+    <li>
+      <strong>Never reviewing automation performance.</strong> GHL provides data on email open
+      rates, SMS delivery rates, and sequence completion. Check these monthly. A sequence with
+      low delivery rates has a phone number or sender reputation issue that needs attention.
+    </li>
+    <li>
+      <strong>Skipping pipeline stage automation entirely.</strong> If you use GHL only as a
+      contact database and never configure pipeline stage triggers, you are paying for an
+      automation platform and using it as a spreadsheet. The value is in the triggers.
+    </li>
+  </ul>
+
+  <h2>Final Recommendation</h2>
+  <p>
+    For roofing companies whose primary challenge is lead response speed and follow-up consistency,
+    GoHighLevel is worth serious evaluation. No other widely available platform combines
+    missed-call text-back, multi-step SMS sequences, estimate reminders, appointment automation,
+    and review requests with a full visual CRM pipeline in a single tool at its price point.
+  </p>
+  <p>
+    The tradeoff is real: GoHighLevel requires meaningful setup investment and ongoing maintenance.
+    It rewards companies that either have an internal person to manage it or work with a roofing
+    marketing agency already running the platform. Companies that sign up expecting results from
+    a default account with no configuration will be disappointed.
+  </p>
+  <p>
+    If you need production management alongside automation, pair GoHighLevel with JobNimbus or
+    AccuLynx — GHL for the sales pipeline and follow-up side, and a roofing-specific platform
+    for operations. This two-tool stack is increasingly common among mid-size to larger roofing
+    companies.
+  </p>
+  <p>
+    For a full comparison of CRM options including GoHighLevel, see our
+    <a href={`${base}/best-crm-for-roofing-companies/`}>Best CRM for Roofing Companies</a> guide.
+  </p>
+  <p><a href="#" rel="nofollow sponsored" target="_blank">Explore GoHighLevel for Your Roofing Business →</a></p>
+
+  <FAQSection items={faqs} />
+
+  <CTABox />
+
+  <RelatedGuides guides={relatedGuides} />
+
+</ArticleLayout>
