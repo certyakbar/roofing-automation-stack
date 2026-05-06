@@ -1,0 +1,434 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import CTABox from '../../components/CTABox.astro';
+import RelatedGuides from '../../components/RelatedGuides.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const tableTools = [
+  {
+    name: 'HighLevel',
+    bestFor: 'Automation-first roofers & agencies',
+    pricing: 'From ~$97/mo — verify with vendor',
+    roofingFit: 'Excellent' as const,
+    standout: 'SMS, missed-call text-back, full automation stack',
+    affiliateHref: '#',
+  },
+  {
+    name: 'JobNimbus',
+    bestFor: 'Residential & storm restoration roofers',
+    pricing: 'From ~$25/user/mo — verify with vendor',
+    roofingFit: 'Excellent' as const,
+    standout: 'Roofing-native workflows, photo docs, field app',
+    affiliateHref: '#',
+  },
+  {
+    name: 'AccuLynx',
+    bestFor: 'Mid-size to larger roofing operations',
+    pricing: 'Contact vendor for pricing',
+    roofingFit: 'Excellent' as const,
+    standout: 'Production scheduling & material ordering',
+    affiliateHref: '#',
+  },
+  {
+    name: 'HubSpot CRM',
+    bestFor: 'Early-stage or HubSpot ecosystem teams',
+    pricing: 'Free tier available; paid plans vary — verify with vendor',
+    roofingFit: 'Moderate' as const,
+    standout: 'Free CRM tier, broad integrations',
+    affiliateHref: '#',
+  },
+  {
+    name: 'Pipedrive',
+    bestFor: 'Sales-focused roofing teams',
+    pricing: 'From ~$14/user/mo — verify with vendor',
+    roofingFit: 'Moderate' as const,
+    standout: 'Visual deal pipeline, clean sales UX',
+    affiliateHref: '#',
+  },
+];
+
+const faqs = [
+  {
+    question: 'What CRM do most roofing companies use?',
+    answer: 'JobNimbus and AccuLynx are among the most widely adopted roofing-specific platforms, particularly in residential and storm restoration markets. HighLevel (GoHighLevel) has grown significantly in popularity with roofing companies and the agencies that serve them, largely because of its built-in automation capabilities. HubSpot\'s free tier is also commonly used as a starting point by smaller operations before migrating to a more specialized tool.',
+  },
+  {
+    question: 'Is HighLevel (GoHighLevel) a good CRM for roofing companies?',
+    answer: 'HighLevel is a strong option for roofing companies that prioritize automation — specifically speed-to-lead, missed-call text-back, SMS follow-up sequences, and multi-stage pipeline automation. It is not roofing-specific, so it lacks production features like built-in photo documentation, material ordering integrations, or insurance claim workflows by default. Many roofing marketing agencies build HighLevel "snapshots" (pre-configured accounts) tailored to roofing workflows, which can significantly reduce the setup burden.',
+  },
+  {
+    question: 'Do I need roofing-specific CRM software or will a general CRM work?',
+    answer: 'It depends on your primary operational need. If you run residential or storm restoration jobs and need photo documentation, production scheduling, and insurance claim workflows built in, a roofing-specific platform (JobNimbus, AccuLynx) saves significant customization time. If your primary need is speed-to-lead and follow-up automation, a platform like HighLevel may serve you better — especially if you are already working with a roofing marketing agency that runs it.',
+  },
+  {
+    question: 'How can a CRM help roofing companies recover missed calls?',
+    answer: 'CRMs with built-in SMS automation — particularly HighLevel — can automatically text any caller who goes unanswered within seconds of a missed call. A simple message like "Hey, we missed your call at [Company Name] — what roofing project can we help with?" keeps the lead engaged before they call the next roofer. Without automation, most missed inbound calls in roofing go unrecovered because reps are on job sites or in appointments.',
+  },
+  {
+    question: 'What is the difference between a roofing CRM and roofing business management software?',
+    answer: 'A CRM focuses on the sales side: lead tracking, follow-up sequences, pipeline stages, and contact management. Roofing business management software (like AccuLynx) extends into operations: production scheduling, material ordering integrations, subcontractor management, and job costing. The lines blur on some platforms. Many roofing companies use one tool for sales pipeline management and a separate tool — or modules within the same platform — for production and operations.',
+  },
+  {
+    question: 'What pipeline stages should a roofing CRM have?',
+    answer: 'A practical roofing sales pipeline includes: New Lead → Contacted → Inspection Scheduled → Inspection Complete → Estimate Sent → Follow-Up Active → Insurance Pending (storm restoration) → Closed Won / Closed Lost. Avoid building more than 7–9 stages — too many stages create friction that kills adoption among field reps.',
+  },
+];
+
+const relatedGuides = [
+  {
+    title: 'CRM for Roofing Companies',
+    href: `${base}/crm/`,
+    description: 'Overview of all CRM options used by residential and commercial roofing companies.',
+  },
+  {
+    title: 'Lead Follow-Up Automation',
+    href: `${base}/lead-follow-up/`,
+    description: 'Automate your follow-up sequences so no roofing lead goes cold.',
+  },
+  {
+    title: 'Missed Call Automation',
+    href: `${base}/missed-calls/`,
+    description: 'Instantly text back every missed inbound call from a roofing prospect.',
+  },
+  {
+    title: 'Free Lead Follow-Up Checklist',
+    href: `${base}/templates/lead-follow-up-checklist/`,
+    description: 'Step-by-step checklist for implementing roofing lead follow-up automation.',
+  },
+  {
+    title: 'Tool Comparisons',
+    href: `${base}/comparisons/`,
+    description: 'Side-by-side comparisons of top roofing automation platforms.',
+  },
+];
+---
+
+<ArticleLayout
+  title="Best CRM for Roofing Companies"
+  description="Compare the best CRM software for roofing companies based on lead response, missed-call recovery, SMS follow-up, sales pipeline tracking, and automation."
+  showCTA={false}
+  faqs={[]}
+  relatedGuides={[]}
+>
+
+  <h2>Quick Answer</h2>
+  <p>
+    For roofing companies that need the fastest speed-to-lead and the deepest built-in automation,
+    <strong>HighLevel (GoHighLevel)</strong> is the strongest option — particularly for missed-call
+    text-back, SMS follow-up sequences, and pipeline automation. For roofing-specific operations
+    management — storm restoration, residential reroof, production scheduling — <strong>JobNimbus</strong>
+    and <strong>AccuLynx</strong> are purpose-built. <strong>HubSpot</strong> and
+    <strong>Pipedrive</strong> work for general sales pipeline management but require more
+    customization to match roofing workflows.
+  </p>
+
+  <h2>Best CRM Options for Roofing Companies by Use Case</h2>
+
+  <h3>HighLevel (GoHighLevel) — Best for Automation-First Roofers</h3>
+  <p>
+    HighLevel is an all-in-one marketing and CRM platform that has gained significant adoption among
+    roofing companies and the agencies that serve them. Its core advantage over roofing-specific
+    CRMs is automation depth: missed-call text-back, multi-step SMS and email follow-up sequences,
+    pipeline stage triggers, and automated review request campaigns can all be configured without
+    third-party integrations.
+  </p>
+  <p>
+    For a roofing company where speed-to-lead is a competitive differentiator — storm restoration
+    markets especially — HighLevel's ability to automatically text a missed call within seconds and
+    enroll that lead in a follow-up sequence is a meaningful operational edge. Many roofing
+    marketing agencies sell HighLevel as a white-labeled platform with pre-built roofing workflows,
+    which can lower the setup cost significantly for companies already working with an agency.
+  </p>
+  <p>
+    HighLevel is not roofing-specific. It does not include built-in photo documentation, material
+    ordering integrations, or production scheduling. Companies with complex production management
+    needs often pair it with a separate operations tool.
+  </p>
+  <p><a href="#" rel="nofollow sponsored" target="_blank">Explore HighLevel for Roofing →</a></p>
+
+  <h3>JobNimbus — Best for Residential &amp; Storm Restoration Roofing</h3>
+  <p>
+    JobNimbus is one of the most widely used platforms in the residential and storm restoration
+    roofing market. Built specifically for exterior contractors, it includes CRM, job management,
+    photo documentation, proposal creation, and a mobile app designed for field use. Its workflows
+    come pre-configured around roofing job stages, which reduces setup time compared to adapting a
+    generic CRM to roofing processes.
+  </p>
+  <p>
+    For sales reps who need to pull up a job on-site, capture photos, and generate a proposal from
+    their phone, JobNimbus's mobile capabilities are a practical advantage. It also integrates with
+    common tools in the roofing ecosystem including measurement platforms commonly used for aerial
+    reporting.
+  </p>
+  <p>
+    JobNimbus's automation depth is more limited compared to HighLevel. Companies that need
+    aggressive multi-step follow-up sequences often supplement it with a dedicated automation tool
+    or integration.
+  </p>
+  <p><a href="#" rel="nofollow sponsored" target="_blank">Explore JobNimbus →</a></p>
+
+  <h3>AccuLynx — Best for Mid-Size to Larger Roofing Operations</h3>
+  <p>
+    AccuLynx is a dedicated roofing business management platform that extends beyond CRM into full
+    production management. In addition to lead tracking and pipeline management, it includes
+    production scheduling, material ordering integrations, subcontractor management, and job costing
+    — making it more of an operations hub than a pure sales CRM.
+  </p>
+  <p>
+    Larger residential roofing companies and commercial roofers who need to coordinate multiple
+    crews, track material orders, and manage subcontractors typically find AccuLynx's operational
+    depth valuable. It is less commonly used as a pure lead-management CRM for smaller or growing
+    operations where the full feature set would go underused.
+  </p>
+  <p><a href="#" rel="nofollow sponsored" target="_blank">Explore AccuLynx →</a></p>
+
+  <h3>HubSpot CRM — Best for Early-Stage or Ecosystem Users</h3>
+  <p>
+    HubSpot offers a free CRM tier commonly used by roofing companies in the early stages of
+    formalizing their sales process. It provides contact management, a deal pipeline, email
+    integration, and a functional mobile app — enough to get organized without upfront cost.
+  </p>
+  <p>
+    HubSpot lacks roofing-specific features and its automation capabilities at the free tier are
+    limited. As a company scales, adding HubSpot's marketing and sales hubs can become expensive
+    relative to purpose-built alternatives. It is most useful as a starting point or for companies
+    already using HubSpot on the marketing side.
+  </p>
+  <p><a href="#" rel="nofollow sponsored" target="_blank">Explore HubSpot CRM →</a></p>
+
+  <h3>Pipedrive — Best for Sales-Focused Roofing Teams</h3>
+  <p>
+    Pipedrive is a sales pipeline CRM known for its clean visual interface and focus on deal
+    management. Roofing sales managers who want a straightforward way to see where every lead sits
+    in the pipeline, assign follow-up tasks, and report on close rates often prefer Pipedrive over
+    more complex platforms.
+  </p>
+  <p>
+    Like HubSpot, Pipedrive is not roofing-specific and requires customization to match roofing
+    workflows. Its automation capabilities are functional but less deep than HighLevel's. It is a
+    practical option for teams that want a clean CRM without the overhead of a full marketing
+    automation platform.
+  </p>
+  <p><a href="#" rel="nofollow sponsored" target="_blank">Explore Pipedrive →</a></p>
+
+  <h2>CRM Comparison Table</h2>
+  <ComparisonTable
+    tools={tableTools}
+    caption="CRM options for roofing companies compared — 2025"
+  />
+
+  <h2>What Roofing Companies Actually Need From a CRM</h2>
+  <p>
+    Generic CRM advice focuses on contact storage and deal stages. For roofing companies, the
+    requirements are more specific:
+  </p>
+  <ul>
+    <li>
+      <strong>Speed-to-lead.</strong> The roofing market — especially storm restoration — is
+      highly competitive on response time. Research consistently shows the first company to make
+      contact wins a disproportionate share of jobs. A CRM that cannot trigger an automated
+      response within minutes of a new lead is costing you closeable jobs.
+    </li>
+    <li>
+      <strong>Missed-call recovery.</strong> A large share of inbound roofing leads call once and
+      move on if no one answers. A CRM with automatic missed-call text-back can recover a
+      meaningful percentage of those leads before they call the next roofer on their list.
+    </li>
+    <li>
+      <strong>SMS-first follow-up.</strong> Homeowners respond to texts at far higher rates than
+      email. Your CRM's follow-up automation should default to SMS, not email — especially for
+      initial contact and estimate follow-up.
+    </li>
+    <li>
+      <strong>Mobile access for field reps.</strong> Your sales reps are in driveways and on
+      rooftops, not at desks. A CRM with a poor mobile experience creates friction that kills
+      adoption.
+    </li>
+    <li>
+      <strong>Photo documentation.</strong> Attaching inspection photos, damage documentation, and
+      before/after images to a job record is a practical necessity for insurance claims and
+      estimate presentations in residential roofing.
+    </li>
+    <li>
+      <strong>Pipeline visibility.</strong> Owners and sales managers need an at-a-glance view of
+      where every lead is — how many estimates are outstanding, which inspections are scheduled,
+      and which deals have gone quiet.
+    </li>
+    <li>
+      <strong>Integrations with your existing tools.</strong> Measurement platforms, estimating
+      software, and QuickBooks connections matter if the CRM is supposed to be a hub rather than
+      another isolated silo.
+    </li>
+  </ul>
+
+  <h2>Recommended Roofing CRM Pipeline Stages</h2>
+  <p>
+    A roofing sales pipeline should reflect how jobs actually move — not a generic B2B sales funnel.
+    Here is a practical stage structure for residential and storm restoration roofing:
+  </p>
+  <ol>
+    <li>
+      <strong>New Lead</strong> — Inbound call, web form, referral, or canvass contact. Automated
+      follow-up should fire immediately.
+    </li>
+    <li>
+      <strong>Contacted</strong> — First contact made. Inspection date not yet confirmed.
+    </li>
+    <li>
+      <strong>Inspection Scheduled</strong> — Appointment set. Automated reminders should trigger
+      24 hours and 2 hours before the appointment.
+    </li>
+    <li>
+      <strong>Inspection Complete</strong> — On-site visit done. Estimate or scope of work pending.
+    </li>
+    <li>
+      <strong>Estimate Sent</strong> — Proposal delivered. Automated follow-up should trigger if
+      no response within 24–48 hours.
+    </li>
+    <li>
+      <strong>Follow-Up Active</strong> — Prospect is considering. Active nurture sequence running.
+    </li>
+    <li>
+      <strong>Insurance Pending</strong> (storm restoration) — Claim filed or adjuster meeting
+      scheduled. May include supplement tracking.
+    </li>
+    <li>
+      <strong>Closed Won</strong> — Contract signed, job scheduled for production.
+    </li>
+    <li>
+      <strong>Closed Lost</strong> — Not proceeding. Archive and schedule a reactivation campaign
+      for 6–12 months out.
+    </li>
+  </ol>
+  <p>
+    Avoid adding more than 9 stages. Excessive pipeline stages create ambiguity that causes reps
+    to park leads in the wrong place — and dead leads go invisible.
+  </p>
+
+  <h2>Must-Have Automations for a Roofing CRM</h2>
+
+  <h3>1. Missed-Call Text-Back</h3>
+  <p>
+    When an inbound call goes unanswered, the CRM should automatically send an SMS within 30–60
+    seconds. A simple message — <em>"Hey, we missed your call at [Company]. What roofing project
+    can we help with?"</em> — keeps the lead in the conversation before they call the next roofer.
+    This single automation can recover a meaningful share of missed inbound calls without any
+    manual effort from your team.
+  </p>
+  <p>More on this: <a href={`${base}/missed-calls/`}>Missed Call Automation for Roofing Companies</a></p>
+
+  <h3>2. New Lead SMS Follow-Up Sequence</h3>
+  <p>
+    Every new lead — regardless of source — should receive an automated SMS within minutes of
+    entering the CRM. The sequence should attempt contact 3–5 times across the first 5–7 days
+    before pausing. Combining SMS with voicemail drops and email covers all channels. Do not rely
+    on a single touchpoint.
+  </p>
+  <p>More on this: <a href={`${base}/lead-follow-up/`}>Lead Follow-Up Automation for Roofing Companies</a></p>
+
+  <h3>3. Estimate Reminder</h3>
+  <p>
+    After sending a proposal, the default in most roofing companies is silence. A better approach:
+    trigger an automatic follow-up SMS 24 hours after sending — <em>"Just checking if you had a
+    chance to review the estimate — happy to answer any questions"</em> — and a second follow-up at
+    72 hours if there is still no response. Estimate reminders cost nothing and consistently
+    improve acceptance rates.
+  </p>
+
+  <h3>4. No-Show Follow-Up</h3>
+  <p>
+    When a prospect misses a scheduled inspection or estimate appointment, an automated sequence
+    should fire immediately to attempt a reschedule. A no-show is usually a scheduling conflict,
+    not a lost lead. Recovering it with a friendly text within the hour costs almost nothing — but
+    most roofing companies let no-shows fall through.
+  </p>
+
+  <h3>5. Old Lead Reactivation</h3>
+  <p>
+    Leads marked Closed Lost from the past 6–18 months are often worth re-engaging, especially
+    after hailstorms move through the area or when new damage events occur. A periodic reactivation
+    campaign — timed around storm season or major weather events — can generate jobs from leads
+    your competitors have already forgotten.
+  </p>
+
+  <h3>6. Review Request Automation</h3>
+  <p>
+    After a job is marked complete, trigger an automated SMS or email requesting a Google review.
+    Timing matters: 24–48 hours after job completion, when satisfaction is highest and the
+    experience is fresh. Reviews compound over time and are one of the most cost-effective
+    organic lead sources a local roofing company can build.
+  </p>
+
+  <h2>Mistakes to Avoid When Choosing a Roofing CRM</h2>
+  <ul>
+    <li>
+      <strong>Buying based on the feature list, not the day-to-day workflow.</strong> Most CRMs
+      look capable in a sales demo. The real question is whether your field reps will actually open
+      the mobile app daily. Test it on a phone in real conditions before committing.
+    </li>
+    <li>
+      <strong>Choosing a CRM with no automation and expecting ROI anyway.</strong> A CRM that only
+      stores contacts is an expensive address book. The ROI in roofing CRM comes from automated
+      follow-up that runs while your team is on the roof.
+    </li>
+    <li>
+      <strong>Building too many pipeline stages.</strong> More than 8–9 stages creates ambiguity.
+      Reps park leads wherever seems closest and deals go invisible. Keep it simple enough that
+      every rep uses stages the same way.
+    </li>
+    <li>
+      <strong>Ignoring mobile adoption.</strong> If the CRM has a poor mobile experience, field
+      reps will not use it — and data quality will collapse within weeks of launch regardless of
+      how good the desktop version is.
+    </li>
+    <li>
+      <strong>Assuming speed-to-lead does not matter in your market.</strong> Even in less
+      competitive or rural markets, the first company to respond wins more than its fair share.
+      Do not deprioritize lead response time in your CRM setup.
+    </li>
+    <li>
+      <strong>Skipping the integration check before signing up.</strong> Before committing to a
+      CRM, verify it connects to your measurement software, estimating tools, Google Workspace, and
+      accounting system. Re-entering data between disconnected tools kills efficiency.
+    </li>
+  </ul>
+
+  <h2>Final Recommendation</h2>
+  <p>
+    For most roofing companies focused on growth, the CRM decision comes down to a straightforward
+    question: <strong>Is your biggest operational gap in production management, or in lead response
+    and follow-up?</strong>
+  </p>
+  <p>
+    If your gap is production — coordinating crews, tracking materials, managing subcontractors —
+    <strong>AccuLynx</strong> or <strong>JobNimbus</strong> are purpose-built for roofing operations
+    and will reduce friction from day one.
+  </p>
+  <p>
+    If your gap is lead response — missed calls going unrecovered, slow follow-up, cold leads,
+    and low estimate acceptance rates — <strong>HighLevel</strong> is the stronger choice. Its
+    automation depth is significantly greater than roofing-specific CRMs out of the box, and many
+    roofing marketing agencies already operate client campaigns on it, making onboarding faster
+    for companies working with an agency partner.
+  </p>
+  <p>
+    If you are still early and budget is tight, <strong>HubSpot's free CRM</strong> is a functional
+    starting point. Plan to migrate to a more purpose-built tool once lead volume justifies the
+    investment.
+  </p>
+  <p>
+    Whichever platform you choose: configure your missed-call text-back, new lead SMS sequence,
+    and estimate follow-up automations before anything else. Those three automations alone can
+    meaningfully improve close rates without adding headcount or changing your sales process.
+  </p>
+
+  <FAQSection items={faqs} />
+
+  <CTABox />
+
+  <RelatedGuides guides={relatedGuides} />
+
+</ArticleLayout>
